@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: pmu_monthly_report_normalized
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+
+  
