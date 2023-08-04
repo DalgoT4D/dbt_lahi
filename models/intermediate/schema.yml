@@ -1,7 +1,7 @@
 version: 2
 
-models:
-  - name: pmu_monthly_report_normalized
+models:  
+  - name: normalized.sql
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 

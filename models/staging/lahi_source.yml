@@ -28,9 +28,3 @@ sources:
       - name: andhra_pradesh_database
         identifier: _airbyte_raw_andhra_pmu_database_22_23_
         description: andhra pradesh google sheet
-      - name: field_visit_form
-        identifier: _airbyte_raw_field_visit_form_lend_a_hand_india
-        description: field visit kobo form
-      - name: pmu_monthly_report
-        identifier: _airbyte_raw_pmu_monthly_report
-        description: pmu monthly report
