@@ -12,8 +12,7 @@
 
 ({{
     flatten_json(
-        model_names = [
-                        source('source_lahi', 'andhra_pradesh_database'),
+        model_names = [source('source_lahi', 'andhra_pradesh_database'),
                         source('source_lahi', 'assam_database'), 
                         source('source_lahi', 'chattisgarh_database'), 
                         source('source_lahi', 'delhi_database'), 
