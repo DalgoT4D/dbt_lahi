@@ -13,9 +13,9 @@ sources:
       - name: gujarat_database
         identifier: _airbyte_raw_gj_pmu_database_22_23
         description: gujarat google sheet
-      - name: karanataka_database
+      - name: karnataka_database
         identifier: _airbyte_raw_ka_pmu_database_22_23_
-        description: karanataka google sheet
+        description: karnataka google sheet
       - name: himachal_pradesh_database
         identifier: _airbyte_raw_hp_pmu_database_22_23_
         description: himachal pradesh google sheet

@@ -1,7 +1,7 @@
 version: 2
 
 models:  
-  - name: normalized.sql
+  - name: state_union.sql
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
