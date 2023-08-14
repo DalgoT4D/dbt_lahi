@@ -1,5 +1,4 @@
 {% macro flatten_json(model_names, json_column) %}
-
 {% set combined_models_query %}
 SELECT * FROM (
     {% for model_name in model_names %}
@@ -24,7 +23,8 @@ FROM ({{ combined_models_query }}) AS combined_models
 
 SELECT
     _airbyte_ab_id,
-    {% for column_name in results_list %}
+    {% for idx in range(results_list|length) %}
+        {% set column_name = results_list[idx] %}
         {% set transformed_column_name = column_name | 
                replace('11Boys', 'boys11') | 
                replace('9Boys', 'boys9') | 
@@ -35,15 +35,14 @@ SELECT
                replace('10Boys', 'Boys 10')  |
                replace('9Girls', 'Girls 9')  |
                replace('12 Total', 'Total 12')  |
-               replace('/', '_') | replace('-', '_') |
-               replace(' ', '_') | replace('.', '_') 
+               replace('/', '_') | replace('-', '_')
                %}
-
+        {% set alias = transformed_column_name %}
         {% set prefix = '' %}
         {% set suffix = '' %}
         {% set found_non_digit = false %}
         {% set ignore_parentheses = false %}
-        {% for char in column_name %}
+        {% for char in transformed_column_name %}
             {% if char == '(' %}
                 {% set ignore_parentheses = true %}
             {% elif char == ')' %}
@@ -58,11 +57,8 @@ SELECT
                 {% set prefix = prefix + char %}
             {% endif %}
         {% endfor %}
-        {% if prefix %}
-            _{{ transformed_column_name | replace(prefix, '') }}{{ suffix }} "{{ prefix }}",
-        {% else %}
-            {{ json_column }}->>'{{ column_name }}' AS {{ transformed_column_name }}{% if not loop.last %},{% endif %}
-        {% endif %}
+        {% set transformed_column_name = prefix + suffix %}
+        combined_models.{{ json_column }}->>'{{ column_name }}' AS "{{ alias }}"{% if not loop.last %},{% endif %}
     {% endfor %}
 FROM ({{ combined_models_query }}) AS combined_models
 {% endmacro %}
