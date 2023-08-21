@@ -17,7 +17,6 @@
     _airbyte_ab_id,
     {% for column_name in results_list %}
       {{ json_column }}->>'{{ column_name }}' as {{ column_name | replace('/', '_') | replace('-', '_') }}{% if not loop.last %},{% endif %}
-    {% endfor %},
-    {{ json_column }}->>'voc_school_details/voc_school_details_db_student_details_3_stud' as vocshooldetailsvocschool
+    {% endfor %}
   FROM {{ model_names | join(', ') }}
 {% endmacro %}
