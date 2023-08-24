@@ -10,5 +10,30 @@ models:
          tests:
            - unique
            - not_null
-
-  
+  - name: delhi_vocational_students_exit_survey.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: field_visit_form_lend_a_hand_india.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: pmu_monthly_report.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
