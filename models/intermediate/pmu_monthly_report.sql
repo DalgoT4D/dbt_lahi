@@ -12,7 +12,7 @@
 
 {{
 new_flatten_json(
-    model_names = [source('source_lahi', 'pmu_monthly_report'),
+    model_names = [source('source_lahi', 'pmu_monthly_report_database'),
             ],
     json_column = '_airbyte_data'
     )

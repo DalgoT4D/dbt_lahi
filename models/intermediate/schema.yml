@@ -37,3 +37,21 @@ models:
          tests:
            - unique
            - not_null
+  - name: gujarat.sql
+    description: "Normalized data of Gujarat" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: jharkhand.sql
+    description: "Normalized data of Jharkhand" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null

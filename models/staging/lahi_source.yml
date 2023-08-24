@@ -34,6 +34,12 @@ sources:
       - name: field_visit_form_lend_a_hand_india_database
         identifier: _airbyte_raw_field_visit_form_lend_a_hand_india
         description: field visit form lend a hand india
-      - name: pmu_monthly_report
+      - name: pmu_monthly_report_database
         identifier: _airbyte_raw_pmu_monthly_report
         description: pmu monthly report
+      - name: gujarat_new_database
+        identifier: _airbyte_raw_gujarat
+        description: gujarat new database
+      - name: jharkhand_database
+        identifier: _airbyte_raw_jharkhand
+        description: jharkhand database

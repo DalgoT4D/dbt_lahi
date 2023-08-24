@@ -16,12 +16,12 @@
   SELECT
     _airbyte_ab_id,
     {% for column_name in results_list %}
-      {{ json_column }}->>'{{ column_name }}' as 
+      {% set alias_base = column_name|replace(' ', '_')|replace('/', '_')|replace('-', '_') %}
+      {% set cleaned_alias = alias_base %}
       {% if column_name|length > 60 %}
-        {{ column_name[25:] | replace(' ', '_') | replace('/', '_') | replace('-', '_') }}
-      {% else %}
-        {{ column_name | replace(' ', '_') | replace('/', '_') | replace('-', '_') }}
-      {% endif %}{% if not loop.last %},{% endif %}
+        {% set cleaned_alias = alias_base[25:] %}
+      {% endif %}
+      {{ json_column }}->>'{{ column_name }}' as "{{ cleaned_alias }}"{% if not loop.last %},{% endif %}
     {% endfor %}
   FROM {{ model_names | join(', ') }}
 {% endmacro %}
