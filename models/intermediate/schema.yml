@@ -1,7 +1,7 @@
 version: 2
 
 models:  
-  - name: andhra_pradesh_pmu
+  - name: andhra_pradesh_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -10,7 +10,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: assam_pmu
+  - name: assam_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -19,7 +19,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: chattisgarh_pmu
+  - name: chattisgarh_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -28,7 +28,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: delhi_pmu
+  - name: delhi_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -37,7 +37,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: gujarat_pmu
+  - name: gujarat_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -46,7 +46,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: himachal_pradesh_pmu
+  - name: himachal_pradesh_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -55,7 +55,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: karnataka_pmu
+  - name: karnataka_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -64,7 +64,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: maharashtra_pmu
+  - name: maharashtra_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
