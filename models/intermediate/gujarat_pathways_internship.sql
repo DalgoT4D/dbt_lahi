@@ -7,7 +7,7 @@
 ) }}
 
 {{
-  new_flatten_json(
+  flatten_json(
     model_names = [source('source_lahi', 'gujarat_pathways_internship')],
     json_column = '_airbyte_data'
   )

@@ -1,7 +1,7 @@
 version: 2
 
 models:  
-  - name: state_union.sql
+  - name: andhra_pradesh_pmu
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -10,7 +10,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: delhi_vocational_students_exit_survey.sql
+  - name: assam_pmu
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -19,7 +19,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: field_visit_form_lend_a_hand_india.sql
+  - name: chattisgarh_pmu
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -28,7 +28,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: pmu_monthly_report.sql
+  - name: delhi_pmu
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
@@ -37,7 +37,70 @@ models:
          tests:
            - unique
            - not_null
-  - name: gujarat.sql
+  - name: gujarat_pmu
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: himachal_pradesh_pmu
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: karnataka_pmu
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: maharashtra_pmu
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: delhi_vocational_students_exit_survey
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: field_visit_form_lend_a_hand_india
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: pmu_monthly_report
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: gujarat_pathways_internship
     description: "Normalized data of Gujarat" 
     +schema: intermediate
     columns: 
@@ -46,7 +109,7 @@ models:
          tests:
            - unique
            - not_null
-  - name: jharkhand.sql
+  - name: jharkhand_pathways_internship
     description: "Normalized data of Jharkhand" 
     +schema: intermediate
     columns: 
