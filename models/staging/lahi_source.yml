@@ -7,9 +7,9 @@ sources:
       - name: delhi_database
         identifier: _airbyte_raw_delhi_pmu_database_22_23_
         description: delhi google sheet
-      - name: maharastra_database
+      - name: maharashtra_database
         identifier: _airbyte_raw_state_pmu_database_22_23_
-        description: maharastra google sheet
+        description: maharashtra google sheet
       - name: gujarat_database
         identifier: _airbyte_raw_gj_pmu_database_22_23
         description: gujarat google sheet

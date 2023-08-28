@@ -1,7 +1,70 @@
 version: 2
 
 models:  
-  - name: state_union.sql
+  - name: andhra_pradesh_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: assam_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: chattisgarh_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: delhi_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: gujarat_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: himachal_pradesh_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: karnataka_pmu.sql
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: maharashtra_pmu.sql
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 
