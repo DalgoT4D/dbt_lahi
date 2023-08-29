@@ -1,0 +1,24 @@
+{{ config(
+  materialized='table',
+) }}
+
+
+SELECT 
+
+"Internship_internship_ongoing_gp_internship_OnGoing_12_M" as internship_ongoing_12_boys,
+"Internship_internship_ongoing_gp_internship_OnGoing_11_M" as internship_ongoing_11_boys,
+"Internship_internship_ongoing_gp_internship_OnGoing_12_F" as internship_ongoing_12_girls,
+"Internship_internship_ongoing_gp_internship_OnGoing_11_F" as internship_ongoing_11_girls,
+"Internship_internship_completed_gp_internship_Comp_12_M" as internship_completed_12_boys,
+"Internship_internship_completed_gp_internship_Comp_12_F" as internship_completed_12_girls,
+"Internship_internship_completed_gp_internship_Comp_11_F" as internship_completed_11_girls,
+"Internship_internship_completed_gp_internship_Comp_11_M" as internship_completed_11_boys,
+"Exit_Survey_Exit_Survey_details_Exit_Survey_Completed_12_F" as exit_survey_completed_12_girls,
+"Exit_Survey_Exit_Survey_details_Exit_Survey_Completed_12_M" as exit_survey_completed_12_boys,
+"re_details_Guest_Lecture_Conducted_12" as guest_lecture_conducted_12,
+"re_details_Guest_Lecture_Conducted_11" as guest_lecture_conducted_11,
+"re_details_Guest_Lecture_Conducted_10" as guest_lecture_conducted_10,
+"re_details_Guest_Lecture_Conducted_9" as guest_lecture_conducted_9
+
+
+FROM {{ ref('pmu_monthly_report') }}
