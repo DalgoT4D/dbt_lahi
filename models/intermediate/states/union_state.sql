@@ -11,6 +11,7 @@ WITH andhra_pradesh AS (
     _airbyte_ab_id,
     "VC_Email_Id",
     "HM_Name",
+    NULL as "Applicable_Classes_10",
     "Block",
     "Books___Class_9",
     "Job_Role__For_Class_11_and_12_",
@@ -63,6 +64,7 @@ assam AS (
      _airbyte_ab_id,
      NULL as "VC_Email_Id",
      NULL as "HM_Name",
+     NULL as "Applicable_Classes_10",
      NULL as "Block",
      NULL as "Books___Class_9",
      NULL as "Job_Role__For_Class_11_and_12_",
@@ -108,8 +110,63 @@ assam AS (
      NULL as "Division",
      "Total_Girls"
   FROM dev_intermediate.assam_state_database
+),
+
+chattisgarh AS (
+  SELECT 
+    _airbyte_ab_id,
+    "VC_Contact_details" as "VC_Phone_Number",
+    "HM_Name",
+    "Block",
+    "Books___Class_9",
+    "Job_Role__For_Class_11_and_12_",
+    "12Boys",
+    "HM_Email_Id_",
+    "Sector___Trade",
+    "11_Total",
+    "10Girls",
+    "Applicable_Classes_09" as "School_Category",
+    "10Boys",
+    "LAB",
+    NULL as "9Girls",
+    "VC_Name",
+    "Year_of_Approval",
+    "School_ID___UDI",
+    "12_Total",
+    "State",
+    "11Boys",
+    "Applicable_Classes_11" as "VT_Mobile_Number",
+    "District",
+    "VTP",
+    "9Boys",
+    "Grand_Total",
+    "12Girls",
+    "Total_Boys",
+    "HM_Phone_Number",
+    "Job_Role__For_Class_9_and_10_",
+    NULL as "VT_Email_Id",
+    "VC_Email" as "VC_Email_Id",
+    "Books___Class_11",
+    "School_Management",
+    "School_Status",
+    "10_Total",
+    "School_Type",
+    "School_Name",
+    "11Girls",
+    "Books___Class_12",
+    "VT_Status",
+    "Applicable_Classes_12",
+    "9_Total",
+    "Gender",
+    "Books___Class_10",
+    "Division",
+    "Total_Girls",
+    "Applicable_Classes_10"
+  FROM dev_intermediate.chattisgarh_state_database
 )
 
 SELECT * FROM andhra_pradesh
 UNION ALL
 SELECT * FROM assam
+UNION ALL
+SELECT * FROM chattisgarh
