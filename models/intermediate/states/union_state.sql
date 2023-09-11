@@ -54,7 +54,7 @@ WITH andhra_pradesh AS (
     "Gender",
     "Books___Class_10",
     "Division",
-    "Total_Girls" as "AP_Total_Girls"
+    "Total_Girls"
   FROM dev_intermediate.andhra_pradesh_state_database
 ),
 
@@ -106,8 +106,8 @@ assam AS (
      NULL as "Gender",
      NULL as "Books___Class_10",
      NULL as "Division",
-     "Total_Girls" as "Assam_Total_Girls"
-FROM dev_intermediate.assam_state_database
+     "Total_Girls"
+  FROM dev_intermediate.assam_state_database
 )
 
 SELECT * FROM andhra_pradesh
