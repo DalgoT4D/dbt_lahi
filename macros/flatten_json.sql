@@ -16,7 +16,7 @@
   SELECT
     _airbyte_ab_id,
     {% for column_name in results_list %}
-      {% set alias_base = column_name|replace(' ', '_')|replace('/', '_')|replace('-', '_')|replace('\n', '_')|replace('(', '_')|replace(')', '_') %}
+      {% set alias_base = column_name|replace(' ', '_')|replace('/', '_')|replace('-', '_')|replace('\n', '_')|replace('(', '_')|replace(')', '_')|replace('___', '_')|replace('__', '_') %}
       {% set cleaned_alias = alias_base %}
       {% if column_name|length > 60 %}
         {% set cleaned_alias = alias_base[25:] %}
