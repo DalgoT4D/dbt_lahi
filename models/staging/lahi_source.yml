@@ -20,7 +20,7 @@ sources:
         identifier: _airbyte_raw_hp_pmu_database_22_23_
         description: himachal pradesh google sheet
       - name: assam_database
-        identifier: _airbyte_raw_assam_pmu_database_22_23_
+        identifier: _airbyte_raw_assam_pmu_database_22_23
         description: assam_google sheet
       - name: chattisgarh_database
         identifier: _airbyte_raw_cg_pmu_database_22_23
