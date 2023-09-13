@@ -63,6 +63,7 @@ SELECT
     "Job_Role_For_Class_9_and_10_" as "job_role_for_class_9_and_10_",
     NULL as "vt_email_id",
     "Books_Class_11" as "books_class_11",
+    NULL as "vt_name",
     "School_Management" as "school_management",
     "School_Status" as "school_status",
     "10_Total" as "10_total",

@@ -1,5 +1,6 @@
 {{ config(
-  materialized='table'
+  materialized='table',
+  schema='intermediate'
 ) }}
 
 with my_cte as ({{ dbt_utils.union_relations(
@@ -9,4 +10,4 @@ with my_cte as ({{ dbt_utils.union_relations(
     ref('maharashtra_state_database')]
 ) }})
 
-select lab from my_cte
+select * from my_cte
