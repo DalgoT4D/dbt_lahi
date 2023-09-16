@@ -35,7 +35,6 @@ SELECT
          "lab" NOT IN ('NA', 'No information available') 
     THEN "lab" 
     END) as lab_not_available,
-    COUNT(DISTINCT CASE WHEN "lab" NOT IN ('NA', 'No information available', 'Not available') THEN "lab" END) as lab,
     COALESCE(SUM(NULLIF("grand_total", 'NA')::INTEGER), 0) AS grand_total_across_states,
     COALESCE(SUM(NULLIF("total_boys", 'NA')::INTEGER), 0) AS total_boys_across_states,
     COALESCE(SUM(NULLIF("total_girls", 'NA')::INTEGER), 0) AS total_girls_across_states
