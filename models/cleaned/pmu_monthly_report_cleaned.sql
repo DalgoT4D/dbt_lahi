@@ -3,7 +3,7 @@
 ) }}
 
 WITH sum_cte AS (
-  SELECT 
+  SELECT
     SUM("Internship_internship_ongoing_gp_internship_OnGoing_12_M"::numeric) AS internship_ongoing_12_boys,
     SUM("Internship_internship_ongoing_gp_internship_OnGoing_11_M"::numeric) AS internship_ongoing_11_boys,
     SUM("Internship_internship_ongoing_gp_internship_OnGoing_12_F"::numeric) AS internship_ongoing_12_girls,
@@ -19,38 +19,21 @@ WITH sum_cte AS (
     SUM("re_details_Guest_Lecture_Conducted_12"::numeric) AS guest_lecture_conducted_12,
     SUM("re_details_Guest_Lecture_Conducted_11"::numeric) AS guest_lecture_conducted_11,
     SUM("re_details_Guest_Lecture_Conducted_10"::numeric) AS guest_lecture_conducted_10,
-    SUM("re_details_Guest_Lecture_Conducted_9"::numeric) AS guest_lecture_conducted_9
-  FROM {{ ref('pmu_monthly_report') }}
+    SUM("re_details_Guest_Lecture_Conducted_9"::numeric) AS guest_lecture_conducted_9,
+    SUM("al_Visit_details_Industrial_Visit_Conducted_11"::numeric) AS industrial_visit_conducted_11,
+    SUM("al_Visit_details_Industrial_Visit_Conducted_10"::numeric) AS industrial_visit_conducted_10,
+    SUM("al_Visit_details_Industrial_Visit_Conducted_9"::numeric) AS industrial_visit_conducted_9,
+    SUM("al_Visit_details_Industrial_Visit_Conducted_12"::numeric) AS industrial_visit_conducted_12,
+    SUM("School_Lab_labs_approved"::numeric) AS lab_status_approved,
+    SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending
+  FROM dev_intermediate.pmu_monthly_report
 )
 
-SELECT 'internship_ongoing_12_boys' AS category, internship_ongoing_12_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_ongoing_11_boys' AS category, internship_ongoing_11_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_ongoing_12_girls' AS category, internship_ongoing_12_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_ongoing_11_girls' AS category, internship_ongoing_11_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_completed_12_boys' AS category, internship_completed_12_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_completed_12_girls' AS category, internship_completed_12_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_completed_11_girls' AS category, internship_completed_11_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'internship_completed_11_boys' AS category, internship_completed_11_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'exit_survey_completed_12_girls' AS category, exit_survey_completed_12_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'exit_survey_completed_12_boys' AS category, exit_survey_completed_12_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'exit_survey_completed_10_boys' AS category, exit_survey_completed_10_boys AS value FROM sum_cte
-UNION ALL
-SELECT 'exit_survey_completed_10_girls' AS category, exit_survey_completed_10_girls AS value FROM sum_cte
-UNION ALL
-SELECT 'guest_lecture_conducted_12' AS category, guest_lecture_conducted_12 AS value FROM sum_cte
-UNION ALL
-SELECT 'guest_lecture_conducted_11' AS category, guest_lecture_conducted_11 AS value FROM sum_cte
-UNION ALL
-SELECT 'guest_lecture_conducted_10' AS category, guest_lecture_conducted_10 AS value FROM sum_cte
-UNION ALL
-SELECT 'guest_lecture_conducted_9' AS category, guest_lecture_conducted_9 AS value FROM sum_cte
+SELECT
+  SUM(internship_ongoing_12_boys + internship_ongoing_11_boys + internship_ongoing_12_girls + internship_ongoing_11_girls) AS internship_ongoing,
+  SUM(internship_completed_12_boys + internship_completed_12_girls + internship_completed_11_girls + internship_completed_11_boys) AS internship_completed,
+  SUM(exit_survey_completed_10_boys + exit_survey_completed_12_girls + exit_survey_completed_12_boys + exit_survey_completed_10_girls) AS exit_survey,
+  SUM(guest_lecture_conducted_12 + guest_lecture_conducted_11 + guest_lecture_conducted_10 + guest_lecture_conducted_9) AS guest_lectures,
+  SUM(industrial_visit_conducted_12 + industrial_visit_conducted_11 + industrial_visit_conducted_10 + industrial_visit_conducted_9) AS industrial_visit,
+  SUM(lab_status_approved + lab_status_pending) AS total_lab_status
+FROM sum_cte
