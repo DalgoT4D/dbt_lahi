@@ -39,22 +39,22 @@ WITH sum_cte AS (
 )
 
 SELECT
-  SUM(internship_ongoing_12_boys + internship_ongoing_11_boys + internship_ongoing_12_girls + internship_ongoing_11_girls) AS internship_ongoing,
-  SUM(internship_completed_12_boys + internship_completed_12_girls + internship_completed_11_girls + internship_completed_11_boys) AS internship_completed,
-  SUM(exit_survey_completed_10_boys + exit_survey_completed_12_girls + exit_survey_completed_12_boys + exit_survey_completed_10_girls) AS exit_survey,
-  SUM(job_mela_male_participated_10 + job_mela_male_participated_12 + job_mela_female_participated_12 + job_mela_female_participated_12) AS job_mela,
-  SUM(guest_lecture_conducted_12 + guest_lecture_conducted_11 + guest_lecture_conducted_10 + guest_lecture_conducted_9) AS guest_lectures,
-  SUM(industrial_visit_conducted_12 + industrial_visit_conducted_11 + industrial_visit_conducted_10 + industrial_visit_conducted_9) AS industrial_visit,
-  SUM(number_of_days_induction + number_of_vts_recruited + number_of_vts_participated_in_service_training + number_of_vts_participated_in_induction + number_of_days_in_service_training) AS tot,
+  internship_ongoing_12_boys + internship_ongoing_11_boys + internship_ongoing_12_girls + internship_ongoing_11_girls AS internship_ongoing,
+  internship_completed_12_boys + internship_completed_12_girls + internship_completed_11_girls + internship_completed_11_boys AS internship_completed,
+  exit_survey_completed_10_boys + exit_survey_completed_12_girls + exit_survey_completed_12_boys + exit_survey_completed_10_girls AS exit_survey,
+  job_mela_male_participated_10 + job_mela_male_participated_12 + job_mela_female_participated_12 + job_mela_female_participated_12 AS job_mela,
+  guest_lecture_conducted_12 + guest_lecture_conducted_11 + guest_lecture_conducted_10 + guest_lecture_conducted_9 AS guest_lectures,
+  industrial_visit_conducted_12 + industrial_visit_conducted_11 + industrial_visit_conducted_10 + industrial_visit_conducted_9 AS industrial_visit,
+  number_of_days_induction + number_of_vts_recruited + number_of_vts_participated_in_service_training + number_of_vts_participated_in_induction + number_of_days_in_service_training AS tot,
   (
-    (SUM(internship_ongoing_11_boys) + SUM(internship_ongoing_11_girls)) /
+    (internship_ongoing_11_boys + internship_ongoing_11_girls) /
     (
-      (SUM(internship_ongoing_11_boys) + SUM(internship_completed_11_boys)) +
-      (SUM(internship_ongoing_11_girls) + SUM(internship_completed_11_girls))
+      (internship_ongoing_11_boys + internship_completed_11_boys) +
+      (internship_ongoing_11_girls + internship_completed_11_girls)
     )
   ) * 100 AS vt_status,
   (
-    SUM(lab_status_approved) /
-    (SUM(lab_status_approved) + SUM(lab_status_pending))
+    lab_status_approved /
+    (lab_status_approved + lab_status_pending)
   ) * 100 AS lab_status
 FROM sum_cte
