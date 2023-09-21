@@ -42,46 +42,94 @@ WITH sum_cte AS (
   FROM dev_intermediate.pmu_monthly_report
 )
 
-SELECT
-  internship_ongoing_12_boys,
-  internship_ongoing_11_boys,
-  internship_ongoing_12_girls,
-  internship_ongoing_11_girls,
-  internship_ongoing_12_boys + internship_ongoing_11_boys + internship_ongoing_12_girls + internship_ongoing_11_girls AS internship_ongoing,
-  -- internship_completed_12_boys + internship_completed_12_girls + internship_completed_11_girls + internship_completed_11_boys AS internship_completed,
-  exit_survey_completed_10_boys,
-  exit_survey_completed_12_girls,
-  exit_survey_completed_12_boys,
-  exit_survey_completed_10_girls,
-  exit_survey_completed_10_boys + exit_survey_completed_12_girls + exit_survey_completed_12_boys + exit_survey_completed_10_girls AS exit_survey,
-  job_mela_male_participated_10 + job_mela_male_participated_12 + job_mela_female_participated_12 + job_mela_female_participated_12 + job_mela_male_offered_12 + job_mela_female_offered_10 + job_mela_female_offered_12 + job_mela_male_offered_10 AS job_mela,
-  guest_lecture_conducted_12,
-  guest_lecture_conducted_11,
-  guest_lecture_conducted_10,
-  guest_lecture_conducted_9,
-  guest_lecture_conducted_12 + guest_lecture_conducted_11 + guest_lecture_conducted_10 + guest_lecture_conducted_9 AS guest_lectures,
-  industrial_visit_conducted_12,
-  industrial_visit_conducted_11,
-  industrial_visit_conducted_10,
-  industrial_visit_conducted_9,
-  industrial_visit_conducted_12 + industrial_visit_conducted_11 + industrial_visit_conducted_10 + industrial_visit_conducted_9 AS industrial_visit,
-  number_of_days_induction,
-  number_of_vts_recruited,
-  number_of_vts_participated_in_service_training,
-  number_of_vts_participated_in_induction,
-  number_of_days_in_service_training,
-  number_of_days_induction + number_of_vts_recruited + number_of_vts_participated_in_service_training + number_of_vts_participated_in_induction + number_of_days_in_service_training AS tot,
-  (
-    (internship_ongoing_11_boys + internship_ongoing_11_girls) /
-    (
-      internship_ongoing_11_boys + internship_ongoing_11_girls
-    )
-  ) * 100 AS vt_status,
-  lab_status_approved,
-  lab_status_pending,
-  lab_status_approved + lab_status_pending as lab_status_required,
-  (
-    lab_status_approved /
-    (lab_status_approved + lab_status_pending)
-  ) * 100 AS lab_status
-FROM sum_cte
+SELECT 'internship_ongoing_12_boys' AS category, internship_ongoing_12_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_ongoing_11_boys' AS category, internship_ongoing_11_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_ongoing_12_girls' AS category, internship_ongoing_12_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_ongoing_11_girls' AS category, internship_ongoing_11_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'Internship_Ongoing' AS category, 
+  SUM(internship_ongoing_12_boys + internship_ongoing_11_boys + internship_ongoing_12_girls + internship_ongoing_11_girls) AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_completed_12_boys' AS category, internship_completed_12_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_completed_12_girls' AS category, internship_completed_12_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_completed_11_girls' AS category, internship_completed_11_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'internship_completed_11_boys' AS category, internship_completed_11_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'exit_survey_completed_10_boys' AS category, exit_survey_completed_10_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'exit_survey_completed_12_girls' AS category, exit_survey_completed_12_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'exit_survey_completed_12_boys' AS category, exit_survey_completed_12_boys AS value FROM sum_cte
+UNION ALL
+SELECT 'exit_survey_completed_10_girls' AS category, exit_survey_completed_10_girls AS value FROM sum_cte
+UNION ALL
+SELECT 'Exit_survey_completed' AS category, 
+  SUM(exit_survey_completed_10_boys + exit_survey_completed_12_girls + exit_survey_completed_12_boys + exit_survey_completed_10_girls) AS value FROM sum_cte
+UNION ALL
+SELECT 'guest_lecture_conducted_12' AS category, guest_lecture_conducted_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'guest_lecture_conducted_11' AS category, guest_lecture_conducted_11 AS value FROM sum_cte
+UNION ALL
+SELECT 'guest_lecture_conducted_10' AS category, guest_lecture_conducted_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'guest_lecture_conducted_9' AS category, guest_lecture_conducted_9 AS value FROM sum_cte
+UNION ALL
+SELECT 'Guest_lecture_conducted' AS category, 
+  SUM(guest_lecture_conducted_12 + guest_lecture_conducted_11 + guest_lecture_conducted_10 + guest_lecture_conducted_9) AS value FROM sum_cte
+UNION ALL
+SELECT 'industrial_visit_conducted_12' AS category, industrial_visit_conducted_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'industrial_visit_conducted_11' AS category, industrial_visit_conducted_11 AS value FROM sum_cte
+UNION ALL
+SELECT 'industrial_visit_conducted_10' AS category, industrial_visit_conducted_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'industrial_visit_conducted_9' AS category, industrial_visit_conducted_9 AS value FROM sum_cte
+UNION ALL
+SELECT 'Industrial_visit_conducted' AS category, 
+  SUM(industrial_visit_conducted_12 + industrial_visit_conducted_11 + industrial_visit_conducted_10 + industrial_visit_conducted_9) AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_male_participated_12' AS category, job_mela_male_participated_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_male_participated_10' AS category, job_mela_male_participated_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_female_participated_12' AS category, job_mela_female_participated_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_female_participated_10' AS category, job_mela_female_participated_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_male_offered_12' AS category, job_mela_male_offered_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_female_offered_10' AS category, job_mela_female_offered_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_female_offered_12' AS category, job_mela_female_offered_12 AS value FROM sum_cte
+UNION ALL
+SELECT 'job_mela_male_offered_10' AS category, job_mela_male_offered_10 AS value FROM sum_cte
+UNION ALL
+SELECT 'Job_mela' AS category, 
+  SUM(job_mela_male_participated_12 + job_mela_male_participated_10 + job_mela_female_participated_12 + job_mela_female_participated_10 + job_mela_male_offered_12 + job_mela_female_offered_10 + job_mela_female_offered_12 + job_mela_male_offered_10) AS value FROM sum_cte
+UNION ALL
+SELECT 'number_of_days_in_service_training' AS category, number_of_days_in_service_training AS value FROM sum_cte
+UNION ALL
+SELECT 'number_of_vts_participated_in_service_training' AS category, number_of_vts_participated_in_service_training AS value FROM sum_cte
+UNION ALL
+SELECT 'number_of_vts_recruited' AS category, number_of_vts_recruited AS value FROM sum_cte
+UNION ALL
+SELECT 'number_of_days_induction' AS category, number_of_days_induction AS value FROM sum_cte
+UNION ALL
+SELECT 'number_of_vts_participated_in_induction' AS category, number_of_vts_participated_in_induction AS value FROM sum_cte
+UNION ALL
+SELECT 'TOT' AS category, 
+  SUM(number_of_days_in_service_training + number_of_vts_participated_in_service_training + number_of_vts_recruited + number_of_days_induction + number_of_days_induction + number_of_vts_participated_in_induction) AS value FROM sum_cte
+UNION ALL
+SELECT 'lab_status_approved' AS category, lab_status_approved AS value FROM sum_cte
+UNION ALL
+SELECT 'lab_status_pending' AS category, lab_status_pending AS value FROM sum_cte
+UNION ALL
+SELECT 'lab_status_required' AS category, (lab_status_approved + lab_status_pending) AS value FROM sum_cte
+UNION ALL
+SELECT 'lab_status' AS category, (lab_status_approved / (lab_status_approved + lab_status_pending)) * 100 AS value FROM sum_cte
