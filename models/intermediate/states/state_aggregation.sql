@@ -7,9 +7,9 @@ SELECT
     COUNT(DISTINCT CASE WHEN "job_role_for_class_9_and_10_" NOT IN ('NA', 'No information available', 'Not available') THEN "job_role_for_class_9_and_10_" END) as job_roles_9th_10th,
     COUNT(DISTINCT CASE WHEN "job_role_for_class_11_and_12_" NOT IN ('NA', 'No information available', 'Not available') THEN "job_role_for_class_11_and_12_" END) as job_roles_11th_12th,
     COUNT(DISTINCT CASE WHEN "sector_trade" NOT IN ('NA', 'No information available', 'Not available') THEN "sector_trade" END) as sector_trade,
-    COUNT(DISTINCT CASE WHEN "school_name" NOT IN ('NA', 'No information available', 'Not available') THEN "school_name" END) as school_name,
-    COUNT(DISTINCT CASE WHEN "vtp" NOT IN ('NA', 'No information available', 'Not available') THEN "vtp" END) as vtp,
-    COUNT(DISTINCT CASE WHEN "vt_name" NOT IN ('NA', 'No information available', 'Not available') THEN "vt_name" END) as vt_name,
+    COUNT(CASE WHEN "school_id___udi" NOT IN ('NA', 'No information available', 'Not available') THEN "school_id___udi" END) as ve_schools,
+    COUNT(CASE WHEN "vtp" NOT IN ('NA', 'No information available', 'Not available') THEN "vtp" END) as vtp,
+    COUNT(CASE WHEN "vt_name" NOT IN ('NA', 'No information available', 'Not available') THEN "vt_name" END) as vt,
     COUNT(CASE 
     WHEN "school_category" = 'Composite (9-12)' AND 
          "school_category" NOT IN ('NA', 'No information available', 'Not available') 
