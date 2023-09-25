@@ -32,6 +32,7 @@ WITH sum_cte AS (
     SUM("Job_Mela_Job_Mela_details_Job_Mela_Offered_Job_10_F"::numeric) AS job_mela_female_offered_10,
     SUM("Job_Mela_Job_Mela_details_Job_Mela_Offered_Job_12_F"::numeric) AS job_mela_female_offered_12,
     SUM("Job_Mela_Job_Mela_details_Job_Mela_Offered_Job_10_M"::numeric) AS job_mela_male_offered_10,
+    SUM("School_VTP_VT_No_VTs_Pending"::numeric) AS job_mela,
     SUM("TOT_TOT_details_No_of_days_induction"::numeric) AS number_of_days_induction,
     SUM("TOT_TOT_details_No_VTs_recruited"::numeric) AS number_of_vts_recruited,
     SUM("TOT_TOT_details_No_VTs_participated_in_in_service_training"::numeric) AS number_of_vts_participated_in_service_training,
@@ -111,7 +112,7 @@ UNION ALL
 SELECT 'job_mela_male_offered_10' AS category, job_mela_male_offered_10 AS value FROM sum_cte
 UNION ALL
 SELECT 'Job_mela' AS category, 
-  SUM(job_mela_male_participated_12 + job_mela_male_participated_10 + job_mela_female_participated_12 + job_mela_female_participated_10 + job_mela_male_offered_12 + job_mela_female_offered_10 + job_mela_female_offered_12 + job_mela_male_offered_10) AS value FROM sum_cte
+  job_mela AS value FROM sum_cte
 UNION ALL
 SELECT 'number_of_days_in_service_training' AS category, number_of_days_in_service_training AS value FROM sum_cte
 UNION ALL
