@@ -48,7 +48,8 @@ WITH sector_counts AS (
                 WHEN "School_VTP_VT_VT_Recruitment_status" <> 'not_applicable' 
                 THEN 1 
                 ELSE 0 
-            END) AS count_vt_approved
+            END) AS count_vt_approved,
+        ROUND(AVG(CAST("School_VTP_VT_average_vt_attendance" AS NUMERIC)), 0) AS avg_vt_attendance
     FROM dev_intermediate.pmu_monthly_report
     GROUP BY "PMU_Monthly_state", "PMU_Monthly_month"
 )
@@ -104,6 +105,6 @@ SELECT
             ROUND((CAST(count_vt_appointed AS decimal) / NULLIF(count_vt_approved, 0)) * 100, 2)::TEXT, 
             ' %'
         )
-    END as prct_vt_appointed
-
+    END as prct_vt_appointed,
+    avg_vt_attendance::TEXT || ' days / 30 days' as avg_vt_attendance
 FROM sector_counts
