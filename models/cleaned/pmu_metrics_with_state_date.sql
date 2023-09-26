@@ -41,7 +41,17 @@ WITH sector_counts AS (
         SUM("TOT_TOT_details_No_VTs_participated_in_induction"::numeric) AS number_of_vts_participated_in_induction,
         SUM("TOT_TOT_details_No_of_days_in_service_training"::numeric) AS number_of_days_in_service_training,
         SUM("School_Lab_labs_approved"::numeric) AS lab_status_approved,
-        SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending
+        SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending,
+        SUM(CASE 
+                WHEN "School_VTP_VT_VT_Recruitment_status" IN ('appointed', 'joined') 
+                THEN 1 
+                ELSE 0 
+            END) AS count_vt_appointed,
+        SUM(CASE 
+                WHEN "School_VTP_VT_VT_Recruitment_status" <> 'not_applicable' 
+                THEN 1 
+                ELSE 0 
+            END) AS count_vt_approved
     FROM dev_intermediate.pmu_monthly_report
     GROUP BY "PMU_Monthly_state", "PMU_Monthly_month"
 )
@@ -88,5 +98,15 @@ SELECT
     CASE 
         WHEN COALESCE(lab_status_approved, 0) + COALESCE(lab_status_pending, 0) = 0 THEN NULL
         ELSE (COALESCE(lab_status_approved, 0) / (COALESCE(lab_status_approved, 0) + COALESCE(lab_status_pending, 0))) * 100
-    END as lab_status
+    END as lab_status,
+    count_vt_appointed,
+    count_vt_approved,
+    CASE 
+        WHEN count_vt_approved = 0 THEN NULL
+        ELSE CONCAT(
+            ROUND((CAST(count_vt_appointed AS decimal) / NULLIF(count_vt_approved, 0)) * 100, 2)::TEXT, 
+            ' %'
+        )
+    END as prct_vt_appointed
+
 FROM sector_counts

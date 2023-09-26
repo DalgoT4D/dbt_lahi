@@ -39,7 +39,9 @@ WITH sum_cte AS (
     SUM("TOT_TOT_details_No_VTs_participated_in_induction"::numeric) AS number_of_vts_participated_in_induction,
     SUM("TOT_TOT_details_No_of_days_in_service_training"::numeric) AS number_of_days_in_service_training,
     SUM("School_Lab_labs_approved"::numeric) AS lab_status_approved,
-    SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending
+    SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending,
+    SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" IN ('appointed', 'joined') THEN 1 ELSE 0 END) AS count_vt_appointed,
+    SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" <> 'not_applicable' THEN 1 ELSE 0 END) AS count_vt_approved
   FROM dev_intermediate.pmu_monthly_report
 )
 
@@ -125,7 +127,7 @@ UNION ALL
 SELECT 'number_of_vts_participated_in_induction' AS category, number_of_vts_participated_in_induction AS value FROM sum_cte
 UNION ALL
 SELECT 'TOT' AS category, 
-  SUM(number_of_days_in_service_training + number_of_vts_participated_in_service_training + number_of_vts_recruited + number_of_days_induction + number_of_days_induction + number_of_vts_participated_in_induction) AS value FROM sum_cte
+  SUM(number_of_vts_participated_in_service_training + number_of_vts_participated_in_induction) AS value FROM sum_cte
 UNION ALL
 SELECT 'lab_status_approved' AS category, lab_status_approved AS value FROM sum_cte
 UNION ALL
@@ -134,3 +136,12 @@ UNION ALL
 SELECT 'lab_status_required' AS category, (lab_status_approved + lab_status_pending) AS value FROM sum_cte
 UNION ALL
 SELECT 'lab_status' AS category, (lab_status_approved / (lab_status_approved + lab_status_pending)) * 100 AS value FROM sum_cte
+UNION ALL
+SELECT 'Count VT Appointed' AS category, count_vt_appointed AS value FROM sum_cte
+UNION ALL
+SELECT 'Count VT Approved' AS category, count_vt_approved AS value FROM sum_cte
+UNION ALL
+SELECT 
+  'Prct VT Appointed' AS category,
+  ROUND((count_vt_appointed * 100.0 / NULLIF(count_vt_approved, 0)), 2) AS value
+FROM sum_cte
