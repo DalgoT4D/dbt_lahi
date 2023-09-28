@@ -79,6 +79,7 @@ SELECT
     "Books_Class_12" as "books_class_12",
     NULL as "udise_code",
     "VT_Status" as "vt_status",
+    NULL as "applicable_classes_12",
     "9_Total" as "9_total",
     NULL as "school_type_1",
     "Gender" as "gender",
