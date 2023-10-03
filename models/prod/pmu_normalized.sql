@@ -27,6 +27,7 @@ WITH aggregated_data AS (
         SUM("Job_Mela_Job_Mela_details_Job_Mela_Participated_10_M"::numeric) AS job_mela_male_participated_10,
         SUM("Job_Mela_Job_Mela_details_Job_Mela_Participated_12_F"::numeric) AS job_mela_female_participated_12,
         SUM("Job_Mela_Job_Mela_details_Job_Mela_Participated_10_F"::numeric) AS job_mela_female_participated_10,
+        SUM("Job_Mela_Job_Mela_details_Job_Mela_schools"::numeric) AS job_mela_schools_participated,
         SUM("TOT_TOT_details_No_of_days_induction"::numeric) AS no_of_days_induction,
         SUM("TOT_TOT_details_No_VTs_recruited"::numeric) AS no_of_vts_recruited,
         SUM("TOT_TOT_details_No_VTs_participated_in_in_service_training"::numeric) AS no_of_vts_participated_in_service_training,
@@ -35,7 +36,8 @@ WITH aggregated_data AS (
         SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" <> 'not_applicable' THEN 1 ELSE 0 END) AS count_vt_approved,
         SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" IN ('appointed', 'joined') THEN 1 ELSE 0 END) AS count_vt_appointed,
         SUM("School_Lab_labs_approved"::numeric) AS school_lab_approved,
-        SUM("School_Lab_No_Labs_Pending"::numeric) AS school_lab_pending
+        SUM("School_Lab_No_Labs_Pending"::numeric) AS school_lab_pending,
+        AVG("School_VTP_VT_average_vt_attendance"::numeric) AS avg_vt_attendance
     FROM {{ref('pmu_monthly_report')}}
     GROUP BY "PMU_Monthly_state", month
 ),
@@ -64,6 +66,7 @@ sector_counts AS (
             'Job_mela_participated_10_M',
             'Job_mela_participated_12_F',
             'Job_mela_participated_10_F',
+            'job_mela_schools_participated',
             'No_of_days_induction',
             'No_VTs_recruited',
             'No_VTs_participated_in_in_service_training',
@@ -72,7 +75,8 @@ sector_counts AS (
             'Count_VT_Approved',
             'Count_VT_Appointed',
             'School_Lab_Approved',
-            'School_Lab_Pending'
+            'School_Lab_Pending',
+            'Avg_VT_Attendance'
         ]) AS original_indicator_name,
         REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(unnest(array[
             'Internship_Ongoing_12_M',
@@ -95,6 +99,7 @@ sector_counts AS (
             'Job_mela_participated_10_M',
             'Job_mela_participated_12_F',
             'Job_mela_participated_10_F',
+            'job_mela_schools_participated',
             'No_of_days_induction',
             'No_VTs_recruited',
             'No_VTs_participated_in_in_service_training',
@@ -103,7 +108,8 @@ sector_counts AS (
             'Count_VT_Approved',
             'Count_VT_Appointed',
             'School_Lab_Approved',
-            'School_Lab_Pending'
+            'School_Lab_Pending',
+            'Avg_VT_Attendance'
         ]), '_12_M', ''), '_11_M', ''), '_12_F', ''), '_11_F', ''), '_10_F', ''), '_10_M', ''), '_9', ''), '_10', ''), '_11', ''), '_12', ''), '_', ' ') AS indicator_name,
         unnest(array[
             COALESCE(internship_ongoing_12_M, 0),
@@ -126,6 +132,7 @@ sector_counts AS (
             COALESCE(job_mela_male_participated_10, 0),
             COALESCE(job_mela_female_participated_12, 0),
             COALESCE(job_mela_female_participated_10, 0),
+            COALESCE(job_mela_schools_participated, 0),
             COALESCE(no_of_days_induction, 0),
             COALESCE(no_of_vts_recruited, 0),
             COALESCE(no_of_vts_participated_in_service_training, 0),
@@ -134,7 +141,8 @@ sector_counts AS (
             COALESCE(count_vt_approved, 0),
             COALESCE(count_vt_appointed, 0),
             COALESCE(school_lab_approved, 0),
-            COALESCE(school_lab_pending, 0)
+            COALESCE(school_lab_pending, 0),
+            COALESCE(avg_vt_attendance, 0)
         ]) AS indicator_count
     FROM aggregated_data
 )
