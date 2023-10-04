@@ -33,6 +33,12 @@ SELECT
     "12Boys" as "12boys",
     "HM_Email_Id_" as "hm_email_id",
     "Sector_Trade" as "sector_trade",
+    CASE 
+      WHEN "State" = 'Delhi' AND "Sector_Trade" = 'Electronic Technology (CBSE)' THEN 'Electronics & Hardware'
+      WHEN "State" = 'Delhi' AND "Sector_Trade" = 'Banking, Financial Services & Insurance (CBSE)' THEN 'Banking, Financial Services & Insurance'
+      WHEN "State" = 'Delhi' AND "Sector_Trade" = 'Food Production' THEN 'Food Processing'
+      ELSE "Sector_Trade"
+    END AS "lahi_sector_name",
     "11_Total" as "11_total",
     "10Girls" as "10girls",
     "School_Category" as "school_category",
