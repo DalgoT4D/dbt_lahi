@@ -27,7 +27,7 @@ SELECT
     "HM_Name" as "hm_name",
     "Block" as "block",
     "Books_Class_9" as "books_class_9",
-    "Job_Role_For_Class_11_and_12_" as "job_role_for_class_11_and_12_",
+    "Job_Role_For_Class_11_and_12_" as "state_job_role_11_and_12",
     CASE 
         WHEN "Job_Role_For_Class_11_and_12_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
         WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
@@ -37,8 +37,8 @@ SELECT
         WHEN "Job_Role_For_Class_11_and_12_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
         WHEN "Job_Role_For_Class_11_and_12_" = 'Food and Beverage Service Assistant' THEN 'Food and Beverage Service Trainee'
         ELSE "Job_Role_For_Class_11_and_12_"
-    END AS "lahi_job_role_name_11_12",
-    "Job_Role_For_Class_9_and_10_" as "job_role_for_class_9_and_10_",
+    END AS "lahi_job_role_11_and_12",
+    "Job_Role_For_Class_9_and_10_" as "state_job_role_9_and_10",
     CASE 
         WHEN "Job_Role_For_Class_9_and_10_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
         WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
@@ -48,7 +48,7 @@ SELECT
         WHEN "Job_Role_For_Class_9_and_10_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
         WHEN "Job_Role_For_Class_9_and_10_" = 'Food and Beverage Service Assistant' THEN 'Food and Beverage Service Trainee'
         ELSE "Job_Role_For_Class_9_and_10_"
-    END AS "lahi_job_role_name_9_10",
+    END AS "lahi_job_role_9_and_10",
     NULL as "remarks",
     "12Boys" as "12boys",
     "HM_Email_Id" as "hm_email_id",
