@@ -28,6 +28,19 @@ SELECT
     "Block" as "block",
     "Books_Class_9" as "books_class_9",
     "Job_Role_For_Class_11_and_12_" as "job_role_for_class_11_and_12",
+    CASE 
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "Job_Role_For_Class_11_and_12_"
+    END AS "lahi_job_role_name_11_12",
+    "Job_Role_For_Class_9_and_10_" as "job_role_for_class_9_and_10_",
+    CASE 
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "Job_Role_For_Class_9_and_10_"
+    END AS "lahi_job_role_name_9_10",
     NULL as "remarks",
     "12Boys" as "12boys",
     "HM_Email_Id_" as "hm_email_id",
@@ -60,7 +73,6 @@ SELECT
     "12Girls" as "12girls",
     "Total_Boys" as "total_boys",
     "HM_Phone_Number" as "hm_phone_number",
-    "Job_Role_For_Class_9_and_10_" as "job_role_for_class_9_and_10_",
     NULL as "vt_email_id",
     "Books_Class_11" as "books_class_11",
     NULL as "vt_name",
