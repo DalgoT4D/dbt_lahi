@@ -47,6 +47,7 @@ SELECT
     "Sector_Trade" as "sector_trade",
     "11_Total" as "11_total",
     "10Girls" as "10girls",
+    "School_Category" as "school_category",
     "Applicable_Classes_09" as "Applicable_Classes_09",
     "10Boys" as "10boys",
     "LAB" as "lab",
