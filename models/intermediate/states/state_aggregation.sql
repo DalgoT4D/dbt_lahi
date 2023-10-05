@@ -7,7 +7,7 @@ SELECT
     COUNT(DISTINCT CASE WHEN "state_job_role_9_and_10" NOT IN ('NA', 'No information available', 'Not available') THEN "state_job_role_9_and_10" END) as job_roles_9th_10th,
     COUNT(DISTINCT CASE WHEN "state_job_role_11_and_12" NOT IN ('NA', 'No information available', 'Not available') THEN "state_job_role_11_and_12" END) as job_roles_11th_12th,
     COUNT(DISTINCT CASE WHEN "sector_trade" NOT IN ('NA', 'No information available', 'Not available') THEN "sector_trade" END) as sector_trade,
-    COUNT(CASE WHEN "school_id___udi" NOT IN ('NA', 'No information available', 'Not available') THEN "school_id___udi" END) as ve_schools,
+    COUNT(CASE WHEN "school_id_udi" NOT IN ('NA', 'No information available', 'Not available') THEN "school_id_udi" END) as ve_schools,
     COUNT(CASE WHEN "vtp" NOT IN ('NA', 'No information available', 'Not available') THEN "vtp" END) as vtp,
     COUNT(CASE WHEN "vt_name" NOT IN ('NA', 'No information available', 'Not available') THEN "vt_name" END) as vt,
     COUNT(CASE 
