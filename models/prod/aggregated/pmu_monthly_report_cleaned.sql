@@ -38,7 +38,7 @@ WITH sum_cte AS (
     SUM("School_Lab_No_Labs_Pending"::numeric) AS lab_status_pending,
     SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" IN ('appointed', 'joined') THEN 1 ELSE 0 END) AS count_vt_appointed,
     SUM(CASE WHEN "School_VTP_VT_VT_Recruitment_status" <> 'not_applicable' THEN 1 ELSE 0 END) AS count_vt_approved
-  FROM dev_intermediate.pmu_monthly_report
+  FROM {{ref('pmu_monthly_report')}}
 )
 
 SELECT 'internship_ongoing_12_boys' AS category, internship_ongoing_12_boys AS value FROM sum_cte
