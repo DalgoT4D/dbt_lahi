@@ -12,7 +12,12 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('gujarat_state_database'),
         ref('himachal_pradesh_state_database'),
         ref('karnataka_state_database'),
-        ref('maharashtra_state_database')
+        ref('ladakh_state_database'),
+        ref('maharashtra_state_database'),
+        ref('nagaland_state_database'),
+        ref('odisha_state_database'),
+        ref('tamil_nadu_state_database'),
+        ref('telangana_state_database')
     ]
 ) }})
 
@@ -24,7 +29,8 @@ SELECT
     hm_name,
     block,
     books_class_9,
-    job_role_for_class_11_and_12_,
+    state_job_role_11_and_12,
+    state_job_role_9_and_10,
     remarks,
     "12boys",
     hm_email_id,
@@ -57,7 +63,6 @@ SELECT
     "12girls",
     total_boys,
     hm_phone_number,
-    job_role_for_class_9_and_10_,
     vt_email_id,
     books_class_11,
     vt_name,
@@ -84,10 +89,7 @@ SELECT
     total_girls,
     applicable_classes_10,
     applicable_classes_12,
-    job_role_for_class_11_and_12,
     "Applicable_Classes_09",
     _12_total,
-    job_role__for_class_11_and_12_,
-    school_id___udi,
-    job_role__for_class_9_and_10_
+    school_id___udi
 FROM my_cte
