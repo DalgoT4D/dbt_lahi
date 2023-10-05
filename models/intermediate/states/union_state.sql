@@ -94,6 +94,5 @@ SELECT
     applicable_classes_10,
     applicable_classes_12,
     "Applicable_Classes_09",
-    _12_total,
-    school_id___udi
+    _12_total
 FROM my_cte
