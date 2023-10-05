@@ -1,6 +1,5 @@
 {{ config(
-  materialized='table',
-  schema='intermediate'
+  materialized='table'
 ) }}
 
 WITH sector_counts AS (
@@ -50,7 +49,7 @@ WITH sector_counts AS (
                 ELSE 0 
             END), 0) AS count_vt_approved,
         AVG(CAST(SPLIT_PART("School_VTP_VT_average_vt_attendance", ' ', 1) AS NUMERIC)) AS avg_vt_attendance_numeric
-    FROM dev_intermediate.pmu_monthly_report
+    FROM {{ref('pmu_monthly_report')}}
     GROUP BY "PMU_Monthly_state", "PMU_Monthly_month"
 )
 

@@ -1,5 +1,5 @@
 {{ config(
-  materialized='table',
+  materialized='table'
 ) }}
 
 WITH sum_cte AS (
