@@ -46,7 +46,7 @@ SELECT
     "VC_Name" AS "vc_name",
     NULL as "cluster",
     "Year_of_Approval" AS "year_of_approval",
-    "School_ID_UDI" AS "school_id___udi",
+    "School_ID_UDI" AS "school_id_udi",
     "12_Total" AS "12_total",
     NULL as "school_type_name",
     "State" AS "state",

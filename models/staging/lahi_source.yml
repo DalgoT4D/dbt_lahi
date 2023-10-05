@@ -43,3 +43,19 @@ sources:
       - name: jharkhand_pathways_internship
         identifier: _airbyte_raw_jharkhand
         description: jharkhand database
+      - name: ladakh_database
+        identifier: _airbyte_raw_ladakh_pmu_database_22_23_
+        description: ladakh database
+      - name: nagaland_database
+        identifier: _airbyte_raw_ng_pmu_database_22_23
+        description: nagaland database
+      - name: odisha_database
+        identifier: _airbyte_raw_od_pmu_database_22_23_
+        description: odisha database
+      - name: tamil_nadu_database
+        identifier: _airbyte_raw_tn_pmu_database_22_23
+        description: tamil nadu database
+      - name: telangana_database
+        identifier: _airbyte_raw_tl_pmu_database_22_23
+        description: telangana database
+
