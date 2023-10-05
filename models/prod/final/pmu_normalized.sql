@@ -1,6 +1,5 @@
 {{ config(
-  materialized='table',
-  schema='prod'
+  materialized='table'
 ) }}
 
 WITH aggregated_data AS (

@@ -1,6 +1,5 @@
 {{ config(
-  materialized='table',
-  schema='intermediate'
+  materialized='table'
 ) }}
 
 with my_cte as ({{ dbt_utils.union_relations(
