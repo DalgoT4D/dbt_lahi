@@ -8,6 +8,7 @@ WITH sector_counts AS (
         school_status,
         unnest(array['sector', 'school_category', 'vt_status', 'lab']) as indicator,
         unnest(array[sector, school_category, vt_status, lab]) as value,
+        COUNT(DISTINCT school_id_udi) as school_count,
         SUM(total_boys) as total_boys_count,
         SUM(total_girls) as total_girls_count,
         SUM(grand_total) as grand_total
@@ -20,6 +21,7 @@ SELECT
     school_status,
     indicator,
     value,
+    school_count,
     total_boys_count,
     total_girls_count,
     grand_total
