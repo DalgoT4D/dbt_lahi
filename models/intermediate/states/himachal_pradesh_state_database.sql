@@ -2,8 +2,7 @@
   materialized='table',
    indexes=[
       {'columns': ['_airbyte_ab_id'], 'type': 'hash'}
-    ],
-    schema='intermediate'
+    ]
 
 ) }}
 
@@ -29,7 +28,30 @@ SELECT
     "HM_Name" as "hm_name",
     "Block" as "block",
     "Books_Class_9" as "books_class_9",
-    "Job_Role_For_Class_11_and_12_" as "job_role_for_class_11_and_12",
+    "Job_Role_For_Class_11_and_12_" as "state_job_role_11_and_12",
+    CASE 
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Jam, Jelly and Ketchup Processing Technician' THEN 'Jam, Jelly, and Ketchup Processing Technician'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        WHEN "Job_Role_For_Class_11_and_12_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
+        ELSE "Job_Role_For_Class_11_and_12_"
+    END AS "lahi_job_role_11_and_12",
+    "Job_Role_For_Class_9_and_10_" as "state_job_role_9_and_10",
+    CASE 
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Jam, Jelly and Ketchup Processing Technician' THEN 'Jam, Jelly, and Ketchup Processing Technician'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        WHEN "Job_Role_For_Class_9_and_10_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
+        ELSE "Job_Role_For_Class_9_and_10_"
+    END AS "lahi_job_role_9_and_10",
     NULL as "remarks",
     "12Boys" as "12boys",
     "HM_Email_Id_" as "hm_email_id",
@@ -62,7 +84,6 @@ SELECT
     "12Girls" as "12girls",
     "Total_Boys" as "total_boys",
     "HM_Phone_Number" as "hm_phone_number",
-    "Job_Role_For_Class_9_and_10_" as "job_role_for_class_9_and_10_",
     "VT_Email_Id" as "vt_email_id",
     "Books_Class_11" as "books_class_11",
     "VT_Name" as "vt_name",

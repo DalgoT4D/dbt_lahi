@@ -64,7 +64,52 @@ models:
          tests:
            - unique
            - not_null
+  - name: ladakh_state_database
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
   - name: maharashtra_state_database
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: nagaland_state_database
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: odisha_state_database
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: tamil_nadu_state_database
+    description: "Normalized data of PMU monthly report" 
+    +schema: intermediate
+    columns: 
+       - name: _airbyte_ab_id
+         description: "The primary key for this table"
+         tests:
+           - unique
+           - not_null
+  - name: telangana_state_database
     description: "Normalized data of PMU monthly report" 
     +schema: intermediate
     columns: 

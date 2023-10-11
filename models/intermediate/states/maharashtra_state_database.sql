@@ -2,8 +2,7 @@
   materialized='table',
    indexes=[
       {'columns': ['_airbyte_ab_id'], 'type': 'hash'}
-    ],
-    schema='intermediate'
+    ]
 
 ) }}
 
@@ -28,7 +27,8 @@ SELECT
     "HM_Name" AS "hm_name",
     "Block" AS "block",
     "Books_Class_9" AS "books_class_9",
-    "Job_Role_For_Class_11_and_12_" AS "job_role__for_class_11_and_12_",
+    "Job_Role_For_Class_11_and_12_" AS "state_job_role_11_and_12",
+    "Job_Role_For_Class_9_and_10_" AS "state_job_role_9_and_10",
     "Remarks" AS "remarks",
     "12Boys" AS "12boys",
     "HM_Email_Id_" AS "hm_email_id",
@@ -45,7 +45,7 @@ SELECT
     "VC_Name" AS "vc_name",
     NULL as "cluster",
     "Year_of_Approval" AS "year_of_approval",
-    "School_ID_UDI" AS "school_id___udi",
+    "School_ID_UDI" AS "school_id_udi",
     "12_Total" AS "12_total",
     NULL as "school_type_name",
     "State" AS "state",
@@ -61,7 +61,6 @@ SELECT
     "12Girls" AS "12girls",
     "Total_Boys" AS "total_boys",
     "HM_Phone_Number" AS "hm_phone_number",
-    "Job_Role_For_Class_9_and_10_" AS "job_role__for_class_9_and_10_",
     "VT_Email_Id" AS "vt_email_id",
     "Books_Class_11" AS "books_class_11",
     "VT_Name" AS "vt_name",

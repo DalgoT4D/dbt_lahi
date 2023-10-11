@@ -2,8 +2,7 @@
   materialized='table',
    indexes=[
       {'columns': ['_airbyte_ab_id'], 'type': 'hash'}
-    ],
-    schema='intermediate'
+    ]
 
 ) }}
 
@@ -29,7 +28,20 @@ SELECT
     "hm_name",
     "block",
     "books_class_9",
-    "jobrole_11_12" as "job_role_for_class_11_and_12",
+    "jobrole_11_12" as "state_job_role_11_and_12",
+    CASE 
+        WHEN "jobrole_11_12" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "jobrole_11_12" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "jobrole_11_12" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "jobrole_11_12"
+    END AS "lahi_job_role_11_and_12",
+    "jobrole_9_10" as "state_job_role_9_and_10",
+    CASE 
+        WHEN "jobrole_9_10" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "jobrole_9_10" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "jobrole_9_10" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "jobrole_9_10"
+    END AS "lahi_job_role_9_and_10",
     NULL as "remarks",
     NULL as "12boys",
     "hm_email_id" as "hm_email_id",
@@ -62,7 +74,6 @@ SELECT
     "class12_g" as "12girls",
     "total_boys",
     "hm_phone_number",
-    "jobrole_9_10" as "job_role_for_class_9_and_10_",
     "vt_email_id",
     "books_class_11" as "books_class_11",
     "vt_name",

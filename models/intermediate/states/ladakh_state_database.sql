@@ -6,13 +6,12 @@
 
 ) }}
 
--- Creating a CTE that flattens the JSON data from the raw_enrollment table
 
 with mycte as (
 {{
     flatten_json(
         model_names = [
-                        source('source_lahi', 'assam_database'), 
+                        source('source_lahi', 'ladakh_database'), 
                 ],
         json_column = '_airbyte_data'
     )
@@ -28,38 +27,30 @@ SELECT
     "Books_Class_9" as "books_class_9",
     "Job_Role_For_Class_11_and_12_" as "state_job_role_11_and_12",
     CASE 
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
         WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
         WHEN "Job_Role_For_Class_11_and_12_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
         WHEN "Job_Role_For_Class_11_and_12_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Retail Sales Associate' THEN 'Sales Associate'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Food and Beverage Service Assistant' THEN 'Food and Beverage Service Trainee'
         ELSE "Job_Role_For_Class_11_and_12_"
     END AS "lahi_job_role_11_and_12",
     "Job_Role_For_Class_9_and_10_" as "state_job_role_9_and_10",
     CASE 
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Four Wheeler Service Assistant' THEN 'Auto Service Technician (Four Wheeler)'
         WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
         WHEN "Job_Role_For_Class_9_and_10_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
         WHEN "Job_Role_For_Class_9_and_10_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Retail Sales Associate' THEN 'Sales Associate'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Food and Beverage Service Assistant' THEN 'Food and Beverage Service Trainee'
         ELSE "Job_Role_For_Class_9_and_10_"
     END AS "lahi_job_role_9_and_10",
     NULL as "remarks",
-    "12Boys" as "12boys",
-    "HM_Email_Id" as "hm_email_id",
+    "12_Boys" as "12boys",
+    "HM_Email_Id_" as "hm_email_id",
     "Sector_Trade" as "sector_trade",
     "11_Total" as "11_total",
-    "10Girls" as "10girls",
+    "10_Girls" as "10girls",
     "School_Category" as "school_category",
-    "10Boys" as "10boys",
+    "10_Boys" as "10boys",
     "LAB" as "lab",
     NULL as "po_email_id",
     "VC_Phone_Number" as "vc_phone_number",
-    "9Girls" as "9girls",
+    "9_Girls" as "9girls",
     NULL as "pincode",
     "VC_Name" as "vc_name",
     NULL as "cluster",
@@ -75,9 +66,9 @@ SELECT
     "District" as "district",
     "VTP" as "vtp",
     NULL as "approval_year",
-    "9Boys" as "9boys",
+    "9_Boys" as "9boys",
     "Grand_Total" as "grand_total",
-    "12Girls" as "12girls",
+    "12_Girls" as "12girls",
     "Total_Boys" as "total_boys",
     "HM_Phone_Number" as "hm_phone_number",
     "VT_Email_Id" as "vt_email_id",
@@ -89,7 +80,7 @@ SELECT
     "School_Type" as "school_type",
     NULL as "po_mob_number",
     "School_Name" as "school_name",
-    "11Girls" as "11girls",
+    "11_Girls" as "11girls",
     NULL as "po_name",
     NULL as "school_location_name",
     NULL as "code_24070101811",
@@ -98,7 +89,6 @@ SELECT
     "Books_Class_12" as "books_class_12",
     NULL as "udise_code",
     "VT_Status" as "vt_status",
-    NULL as "applicable_classes_12",
     "9_Total" as "9_total",
     NULL as "school_type_1",
     "Gender" as "gender",
