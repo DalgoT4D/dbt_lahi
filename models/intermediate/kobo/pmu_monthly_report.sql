@@ -9,7 +9,7 @@
 
 
 {{
-flatten_json(
+flatten_json_kobo(
     model_names = [source('source_lahi', 'pmu_monthly_report_database'),
             ],
     json_column = '_airbyte_data'
