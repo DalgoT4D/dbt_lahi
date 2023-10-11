@@ -1,6 +1,6 @@
-{% macro flatten_json(model_names, json_column) %}
+{% macro flatten_json_kobo(model_names, json_column) %}
   {% set survey_methods_query %}
-    SELECT DISTINCT(jsonb_object_keys({{ json_column }})) as column_name
+    SELECT DISTINCT(jsonb_object_keys({{ json_column }}->'data')) as column_name
     FROM {{ model_names | join(', ') }}
   {% endset %}
 
@@ -25,7 +25,7 @@
       {% else %}
         {% set cleaned_alias = column_name %}
       {% endif %}
-      {{ json_column }}->>'{{ column_name }}' as "{{ cleaned_alias }}"{% if not loop.last %},{% endif %}
+      {{ json_column }}->'data'->>'{{ column_name }}' as "{{ cleaned_alias }}"{% if not loop.last %},{% endif %}
     {% endfor %}
   FROM {{ model_names | join(', ') }}
 {% endmacro %}
