@@ -8,7 +8,7 @@ WITH cte AS (
         "_id" AS id,
         employee_name,
         State,
-        "Voc_school_details_udise" AS members,
+        "Voc_school_details_udise" AS ve_schools_covered,
         CASE 
             WHEN _geolocation IS NOT NULL AND _geolocation != 'null' AND _geolocation != '[null, null]' THEN (regexp_split_to_array(REPLACE(REPLACE(_geolocation, '[', ''), ']', ''), E', '))[1]::numeric
             ELSE NULL
@@ -21,7 +21,7 @@ WITH cte AS (
         date_time_at_the_end_of_visit
     FROM {{ref('pmu_field_visit')}}
     GROUP BY 
-        id, visit_type, date_time_at_the_end_of_visit, _geolocation, employee_name, State, date_time_of_visit, members
+        id, visit_type, date_time_at_the_end_of_visit, _geolocation, employee_name, State, date_time_of_visit, ve_schools_covered
 )
 
 SELECT 
@@ -29,7 +29,7 @@ SELECT
     cte.id,
     cte.employee_name,
     cte.State,
-    cte.members,
+    cte.ve_schools_covered,
     cte.latitude,
     cte.longitude,
     EXTRACT(MONTH FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS month,
