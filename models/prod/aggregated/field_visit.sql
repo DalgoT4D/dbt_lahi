@@ -12,11 +12,11 @@ WITH cte AS (
         CASE 
             WHEN _geolocation IS NOT NULL AND _geolocation != 'null' AND _geolocation != '[null, null]' THEN (regexp_split_to_array(REPLACE(REPLACE(_geolocation, '[', ''), ']', ''), E', '))[1]::numeric
             ELSE NULL
-        END AS geo_0,
+        END AS latitude,
         CASE 
             WHEN _geolocation IS NOT NULL AND _geolocation != 'null' AND _geolocation != '[null, null]' THEN (regexp_split_to_array(REPLACE(REPLACE(_geolocation, '[', ''), ']', ''), E', '))[2]::numeric
             ELSE NULL
-        END AS geo_1,
+        END AS longitude,
         TO_DATE("Date_time_of_Visit", 'YYYY-MM-DD') as date_time_of_visit,
         date_time_at_the_end_of_visit
     FROM {{ref('pmu_field_visit')}}
@@ -30,8 +30,8 @@ SELECT
     cte.employee_name,
     cte.State,
     cte.members,
-    cte.geo_0,
-    cte.geo_1,
+    cte.latitude,
+    cte.longitude,
     EXTRACT(MONTH FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS month,
     TO_CHAR(TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS'), 'Month') AS month_name,
     EXTRACT(DAY FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS date,
