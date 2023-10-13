@@ -55,4 +55,6 @@ sources:
       - name: pmu_field_visit_database
         identifier: _airbyte_raw_field_visit_form_lend_a_hand_india
         description: pmu field visit
-
+      - name: employee_data_database
+        identifier: _airbyte_raw_employee_database
+        description: employee data new
