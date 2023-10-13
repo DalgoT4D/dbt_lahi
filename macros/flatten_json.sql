@@ -16,14 +16,10 @@
   SELECT
     _airbyte_ab_id,
     {% for column_name in results_list %}
-      {% if column_name not in ['__version__', '_version_'] %}
-        {% set alias_base = column_name|replace(' ', '_')|replace('/', '_')|replace('-', '_')|replace('\n', '_')|replace('(', '_')|replace(')', '_')|replace('___', '_')|replace('__', '_') %}
-        {% set cleaned_alias = alias_base %}
-        {% if column_name|length > 60 %}
-          {% set cleaned_alias = alias_base[25:] %}
-        {% endif %}
-      {% else %}
-        {% set cleaned_alias = column_name %}
+      {% set alias_base = column_name|replace(' ', '_')|replace('/', '_')|replace('-', '_')|replace('\n', '_')|replace('(', '_')|replace(')', '_')|replace('___', '_')|replace('__', '_') %}
+      {% set cleaned_alias = alias_base %}
+      {% if column_name|length > 60 %}
+        {% set cleaned_alias = alias_base[25:] %}
       {% endif %}
       {{ json_column }}->>'{{ column_name }}' as "{{ cleaned_alias }}"{% if not loop.last %},{% endif %}
     {% endfor %}
