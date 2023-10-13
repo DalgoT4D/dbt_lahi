@@ -4,6 +4,7 @@
 
 WITH sector_counts AS (
     SELECT 
+        "_id" as id,
         "PMU_Monthly_state" AS state,
         TO_DATE("PMU_Monthly_month", 'YYYY-MM-DD') AS month,
         COALESCE(SUM("Internship_internship_ongoing_gp_internship_OnGoing_12_M"::numeric), 0) AS internship_ongoing_12_boys,
@@ -50,10 +51,11 @@ WITH sector_counts AS (
             END), 0) AS count_vt_approved,
         AVG(CAST(SPLIT_PART("School_VTP_VT_average_vt_attendance", ' ', 1) AS NUMERIC)) AS avg_vt_attendance_numeric
     FROM {{ref('pmu_monthly_report')}}
-    GROUP BY "PMU_Monthly_state", "PMU_Monthly_month"
+    GROUP BY id, "PMU_Monthly_state", "PMU_Monthly_month"
 )
 
 SELECT 
+    id,
     state,
     month,
     internship_ongoing_12_boys,
