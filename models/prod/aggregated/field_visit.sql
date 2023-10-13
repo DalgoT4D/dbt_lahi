@@ -25,16 +25,16 @@ WITH cte AS (
 )
 
 SELECT 
-    cte.visit_type,
     cte.id,
-    cte.employee_name,
     cte.State,
+    cte.date_time_of_visit,
+    cte.visit_type,
+    cte.employee_name,
     cte.ve_schools_covered,
-    cte.latitude,
-    cte.longitude,
     EXTRACT(MONTH FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS month,
-    TO_CHAR(TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS'), 'Month') AS month_name,
+    TRIM(TO_CHAR(TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS'), 'Month')) AS month_name,
     EXTRACT(DAY FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS date,
-    cte.date_time_of_visit
+    cte.latitude,
+    cte.longitude
 FROM 
     cte
