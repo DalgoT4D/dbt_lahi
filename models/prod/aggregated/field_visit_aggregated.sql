@@ -21,7 +21,7 @@ WITH cte AS (
         date_time_at_the_end_of_visit
     FROM {{ref('pmu_field_visit')}}
     GROUP BY 
-        id, visit_type, date_time_at_the_end_of_visit, _geolocation, employee_name, State, date_of_visit, ve_schools_covered
+        id, visit_type, _geolocation, date_time_at_the_end_of_visit, employee_name, State, date_of_visit, ve_schools_covered
 )
 
 SELECT 
@@ -32,9 +32,9 @@ SELECT
     cte.employee_name,
     ed."Project" AS project,
     cte.ve_schools_covered,
-    EXTRACT(MONTH FROM TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS')) AS month,
-    TRIM(TO_CHAR(TO_TIMESTAMP(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS'), 'Month')) AS month_name,
-    TO_DATE(cte.date_time_at_the_end_of_visit, 'YYYY-MM-DDTHH24:MI:SS') AS date_at_end_of_visit,
+    EXTRACT(MONTH FROM cte.date_of_visit) AS month,
+    TRIM(TO_CHAR(cte.date_of_visit, 'Month')) AS month_name,
+    cte.date_of_visit::date AS date_at_end_of_visit,
     cte.latitude,
     cte.longitude
 FROM 
