@@ -36,7 +36,8 @@ SELECT
     TRIM(TO_CHAR(cte.date_of_visit, 'Month')) AS month_name,
     cte.date_of_visit::date AS date_at_end_of_visit,
     cte.latitude,
-    cte.longitude
+    cte.longitude,
+    1 AS visit_count
 FROM 
     cte
 LEFT JOIN 
