@@ -31,12 +31,18 @@ sources:
       - name: pmu_monthly_report_database
         identifier: _airbyte_raw_pmu_monthly_report
         description: pmu monthly report
+      - name: delhi_pathways_internship
+        identifier: _airbyte_raw_delhi
+        description: delhi new database
       - name: gujarat_pathways_internship
         identifier: _airbyte_raw_gujarat
         description: gujarat new database
       - name: jharkhand_pathways_internship
         identifier: _airbyte_raw_jharkhand
         description: jharkhand database
+      - name: maharashtra_pathways_internship
+        identifier: _airbyte_raw_maharashta
+        description: maharashtra database
       - name: ladakh_database
         identifier: _airbyte_raw_ladakh_pmu_database_22_23_
         description: ladakh database
