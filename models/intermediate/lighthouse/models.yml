@@ -1,0 +1,1041 @@
+version: 2
+models:
+- name: academic_years
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: year_code
+    description: ''
+  - name: is_active
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: phase_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+  - name: is_current_academic_year
+    description: ''
+  - name: end_month
+    description: ''
+  - name: start_month
+    description: ''
+  - name: year_name
+    description: ''
+- name: blocks
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: block_name
+    description: ''
+  - name: is_active
+    description: ''
+  - name: district_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: block_id
+    description: ''
+  - name: description
+    description: ''
+- name: countries
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: country_icon
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: currency_name
+    description: ''
+  - name: isocode
+    description: ''
+  - name: country_name
+    description: ''
+  - name: is_active
+    description: ''
+  - name: country_code
+    description: ''
+  - name: currency_code
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+  - name: isdcode
+    description: ''
+- name: districts
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: state_code
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+  - name: district_name
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: division_id
+    description: ''
+  - name: district_code
+    description: ''
+- name: divsion_districts
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: division_district_id
+    description: ''
+  - name: district_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: division_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: is_active
+    description: ''
+- name: divisions
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: division_name
+    description: ''
+  - name: state_code
+    description: ''
+  - name: created_by
+    description: ''
+  - name: division_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+- name: hm_issue_reporting
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: sub_issue
+    description: ''
+  - name: longitude
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: hmissue_reporting_id
+    description: ''
+  - name: month
+    description: ''
+  - name: approval_status
+    description: ''
+  - name: is_active
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: remarks
+    description: ''
+  - name: issue_report_date
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: hmid
+    description: ''
+  - name: student_type
+    description: ''
+  - name: approved_date
+    description: ''
+  - name: issue_details
+    description: ''
+  - name: latitude
+    description: ''
+  - name: no_of_students
+    description: ''
+  - name: student_class
+    description: ''
+  - name: main_issue
+    description: ''
+  - name: geo_location
+    description: ''
+- name: hm_schools_map
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: hmid
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: hmschool_id
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: date_of_resignation
+    description: ''
+  - name: date_of_joining
+    description: ''
+- name: job_roles
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: qpcode
+    description: ''
+  - name: remarks
+    description: ''
+  - name: job_role_id
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: job_role_name
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: created_by
+    description: ''
+  - name: display_order
+    description: ''
+  - name: created_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: sector_id
+    description: ''
+- name: roles
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: remarks
+    description: ''
+  - name: code
+    description: ''
+  - name: name
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+  - name: landing_page_url
+    description: ''
+  - name: role_id
+    description: ''
+- name: school_categories
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: school_category_id
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+  - name: category_name
+    description: ''
+- name: school_classes
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: class_code
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: display_order
+    description: ''
+  - name: is_active
+    description: ''
+  - name: remarks
+    description: ''
+  - name: class_id
+    description: ''
+  - name: name
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+- name: schools
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: village
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: school_category_id
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: school_management_id
+    description: ''
+  - name: udise
+    description: ''
+  - name: state_code
+    description: ''
+  - name: school_type_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: demography
+    description: ''
+  - name: is_implemented
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: school_name
+    description: ''
+  - name: block_name
+    description: ''
+  - name: panchayat
+    description: ''
+  - name: is_active
+    description: ''
+  - name: phase_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: division_id
+    description: ''
+  - name: block_id
+    description: ''
+  - name: district_code
+    description: ''
+  - name: pincode
+    description: ''
+- name: schools_by_vtp_sector_info
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: vtclass_id
+    description: ''
+  - name: vtid
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: implemented_school_id
+    description: ''
+  - name: district_id
+    description: ''
+  - name: division_id
+    description: ''
+  - name: vtschool_sector_id
+    description: ''
+  - name: sector_id
+    description: ''
+  - name: vcid
+    description: ''
+  - name: vtpid
+    description: ''
+  - name: approved_school_id
+    description: ''
+- name: school_ve_incharges
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: date_of_joining
+    description: ''
+  - name: date_of_resignation_from_role_school
+    description: ''
+  - name: email
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: middle_name
+    description: ''
+  - name: first_name
+    description: ''
+  - name: mobile
+    description: ''
+  - name: school_id
+    description: ''
+  - name: veiid
+    description: ''
+  - name: last_name
+    description: ''
+  - name: mobile1
+    description: ''
+  - name: gender
+    description: ''
+  - name: full_name
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+- name: school_vtp_sectors
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: remarks
+    description: ''
+  - name: school_vtpsector_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: sector_id
+    description: ''
+  - name: vtpid
+    description: ''
+  - name: is_ayrollover
+    description: ''
+- name: sections
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: display_order
+    description: ''
+  - name: is_active
+    description: ''
+  - name: remarks
+    description: ''
+  - name: section_id
+    description: ''
+  - name: name
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: description
+    description: ''
+- name: sector_job_roles
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+- name: sectors
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: display_order
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: sector_name
+    description: ''
+  - name: description
+    description: ''
+  - name: sector_id
+    description: ''
+- name: student_class_details
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: aadhaar_number
+    description: ''
+  - name: student_roll_number
+    description: ''
+  - name: created_on
+    description: ''
+  - name: father_name
+    description: ''
+  - name: mother_name
+    description: ''
+  - name: religion
+    description: ''
+  - name: mobile
+    description: ''
+  - name: social_category
+    description: ''
+  - name: job_role_id
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: guardian_name
+    description: ''
+  - name: is_active
+    description: ''
+  - name: stream_id
+    description: ''
+  - name: is_same_student_trade
+    description: ''
+  - name: mobile1
+    description: ''
+  - name: created_by
+    description: ''
+  - name: cwsnstatus
+    description: ''
+  - name: sector_id
+    description: ''
+  - name: assessment_conducted
+    description: ''
+  - name: is_student_ve9and10
+    description: ''
+  - name: student_id
+    description: ''
+  - name: date_of_birth
+    description: ''
+  - name: whats_app_no
+    description: ''
+- name: student_classes
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: student_unique_id
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: last_name
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: class_id
+    description: ''
+  - name: dropout_reason
+    description: ''
+  - name: date_of_dropout
+    description: ''
+  - name: created_on
+    description: ''
+  - name: first_name
+    description: ''
+  - name: mobile
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+  - name: section_id
+    description: ''
+  - name: date_of_enrollment
+    description: ''
+  - name: created_by
+    description: ''
+  - name: deleted_by
+    description: ''
+  - name: student_id
+    description: ''
+  - name: middle_name
+    description: ''
+  - name: deleted_on
+    description: ''
+  - name: gender
+    description: ''
+  - name: full_name
+    description: ''
+- name: student_class_mapping
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: class_id
+    description: ''
+  - name: student_roll_number
+    description: ''
+  - name: student_class_mapping_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+  - name: section_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: student_id
+    description: ''
+  - name: is_ayrollover
+    description: ''
+- name: students_for_exit_form
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: student_unique_id
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: last_name
+    description: ''
+  - name: academic_year
+    description: ''
+  - name: category
+    description: ''
+  - name: name_of_school
+    description: ''
+  - name: created_on
+    description: ''
+  - name: father_name
+    description: ''
+  - name: first_name
+    description: ''
+  - name: vtmobile
+    description: ''
+  - name: vcid
+    description: ''
+  - name: vtpname
+    description: ''
+  - name: student_full_name
+    description: ''
+  - name: class
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: district
+    description: ''
+  - name: sector
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+  - name: vtname
+    description: ''
+  - name: created_by
+    description: ''
+  - name: udise_code
+    description: ''
+  - name: exit_student_id
+    description: ''
+  - name: vtpid
+    description: ''
+  - name: job_role
+    description: ''
+  - name: middle_name
+    description: ''
+  - name: dob
+    description: ''
+  - name: gender
+    description: ''
+  - name: vcname
+    description: ''
+- name: vc_school_sectors
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: school_vtpsector_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: vcid
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: vcschool_sector_id
+    description: ''
+  - name: is_active
+    description: ''
+  - name: created_by
+    description: ''
+  - name: date_of_removal
+    description: ''
+  - name: date_of_allocation
+    description: ''
+  - name: is_ayrollover
+    description: ''
+- name: vocational_training_providers
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: primary_contact_person
+    description: ''
+  - name: vtpaddress
+    description: ''
+  - name: approval_year
+    description: ''
+  - name: vtpname
+    description: ''
+  - name: vtpmobile_no
+    description: ''
+  - name: vtpshort_name
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: vtpstate_coordinator
+    description: ''
+  - name: vtpstate_coordinator_email
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: vtpstate_coordinator_mobile
+    description: ''
+  - name: primary_mobile_number
+    description: ''
+  - name: certification_no
+    description: ''
+  - name: vtpemail_id
+    description: ''
+  - name: primary_contact_email
+    description: ''
+  - name: created_by
+    description: ''
+  - name: vtpid
+    description: ''
+  - name: created_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: certification_agency
+    description: ''
+- name: vt_class_students
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: created_on
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+  - name: created_by
+    description: ''
+  - name: vtclass_student_id
+    description: ''
+  - name: student_id
+    description: ''
+- name: vtp_sector_job_roles
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+- name: vtp_sectors
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_by
+    description: ''
+  - name: updated_on
+    description: ''
+  - name: sector_id
+    description: ''
+  - name: vtpid
+    description: ''
+  - name: is_active
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: remarks
+    description: ''
+  - name: vtpsector_id
+    description: ''
+  - name: is_ayrollover
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+- name: vt_school_classes
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+- name: vt_school_sector_job_roles
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: vtschool_sector_job_role_id
+    description: ''
+  - name: job_role_id
+    description: ''
+  - name: created_by
+    description: ''
+  - name: created_on
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtschool_sector_id
+    description: ''
+- name: vt_school_sectors
+  description: ''
+  +schema: lighthouse
+  columns:
+  - name: _airbyte_ab_id
+    description: ''
+    tests:
+    - unique
+    - not_null
+  - name: updated_on
+    description: ''
+  - name: school_id
+    description: ''
+  - name: academic_year_id
+    description: ''
+  - name: created_on
+    description: ''
+  - name: job_role_id
+    description: ''
+  - name: updated_by
+    description: ''
+  - name: is_active
+    description: ''
+  - name: vtid
+    description: ''
+  - name: created_by
+    description: ''
+  - name: vtschool_sector_id
+    description: ''
+  - name: sector_id
+    description: ''
+  - name: date_of_removal
+    description: ''
+  - name: date_of_allocation
+    description: ''
+  - name: is_ayrollover
+    description: ''
