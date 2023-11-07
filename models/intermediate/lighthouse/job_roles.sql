@@ -10,16 +10,20 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'QPCode' as "qpcode"
-,_airbyte_data::json->>'Remarks' as "remarks"
-,_airbyte_data::json->>'JobRoleId' as "job_role_id"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'JobRoleName' as "job_role_name"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'DisplayOrder' as "display_order"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'SectorId' as "sector_id"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+jobroleid as "jobroleid",
+createdby as "createdby",
+sectorid as "sectorid",
+updatedon as "updatedon",
+displayorder as "displayorder",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+qpcode as "qpcode",
+remarks as "remarks",
+updatedby as "updatedby",
+_airbyte_jobroles_hashid as "_airbyte_jobroles_hashid",
+createdon as "createdon",
+jobrolename as "jobrolename",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','job_roles')}}

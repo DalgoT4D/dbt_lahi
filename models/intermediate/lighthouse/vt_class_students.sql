@@ -10,13 +10,17 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'VTId' as "vtid"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'VTClassStudentId' as "vtclass_student_id"
-,_airbyte_data::json->>'StudentId' as "student_id"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+createdby as "createdby",
+updatedon as "updatedon",
+vtid as "vtid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+vtclassstudentid as "vtclassstudentid",
+updatedby as "updatedby",
+createdon as "createdon",
+studentid as "studentid",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+_airbyte_vtclassstudents_hashid as "_airbyte_vtclassstudents_hashid"
 FROM {{source('source_lahi','vt_class_students')}}

@@ -10,16 +10,20 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'ClassCode' as "class_code"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'DisplayOrder' as "display_order"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'Remarks' as "remarks"
-,_airbyte_data::json->>'ClassId' as "class_id"
-,_airbyte_data::json->>'Name' as "name"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'Description' as "description"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+classcode as "classcode",
+_airbyte_schoolclasses_hashid as "_airbyte_schoolclasses_hashid",
+createdby as "createdby",
+updatedon as "updatedon",
+description as "description",
+classid as "classid",
+displayorder as "displayorder",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+remarks as "remarks",
+"Name" as "name",
+updatedby as "updatedby",
+createdon as "createdon",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','school_classes')}}

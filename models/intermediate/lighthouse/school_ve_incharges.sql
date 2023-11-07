@@ -10,23 +10,27 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'DateOfJoining' as "date_of_joining"
-,_airbyte_data::json->>'DateOfResignationFromRoleSchool' as "date_of_resignation_from_role_school"
-,_airbyte_data::json->>'Email' as "email"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'MiddleName' as "middle_name"
-,_airbyte_data::json->>'FirstName' as "first_name"
-,_airbyte_data::json->>'Mobile' as "mobile"
-,_airbyte_data::json->>'SchoolId' as "school_id"
-,_airbyte_data::json->>'VEIId' as "veiid"
-,_airbyte_data::json->>'LastName' as "last_name"
-,_airbyte_data::json->>'Mobile1' as "mobile1"
-,_airbyte_data::json->>'Gender' as "gender"
-,_airbyte_data::json->>'FullName' as "full_name"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'VTId' as "vtid"
+    SELECT
+_airbyte_schoolveincharges_hashid as "_airbyte_schoolveincharges_hashid",
+lastname as "lastname",
+createdby as "createdby",
+mobile1 as "mobile1",
+_airbyte_ab_id as "_airbyte_ab_id",
+updatedon as "updatedon",
+vtid as "vtid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+updatedby as "updatedby",
+createdon as "createdon",
+veiid as "veiid",
+schoolid as "schoolid",
+firstname as "firstname",
+dateofjoining as "dateofjoining",
+email as "email",
+gender as "gender",
+fullname as "fullname",
+dateofresignationfromroleschool as "dateofresignationfromroleschool",
+middlename as "middlename",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+mobile as "mobile"
 FROM {{source('source_lahi','school_ve_incharges')}}

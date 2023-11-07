@@ -10,11 +10,16 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'VTSchoolSectorJobRoleId' as "vtschool_sector_job_role_id"
-,_airbyte_data::json->>'JobRoleId' as "job_role_id"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'VTSchoolSectorId' as "vtschool_sector_id"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+jobroleid as "jobroleid",
+createdby as "createdby",
+_airbyte_vtschoolsectorjobroles_hashid as "_airbyte_vtschoolsectorjobroles_hashid",
+vtschoolsectorjobroleid as "vtschoolsectorjobroleid",
+vtschoolsectorid as "vtschoolsectorid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+remarks as "remarks",
+createdon as "createdon",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','vt_school_sector_job_roles')}}

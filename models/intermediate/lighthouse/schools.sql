@@ -10,28 +10,33 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'Village' as "village"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'SchoolId' as "school_id"
-,_airbyte_data::json->>'SchoolCategoryId' as "school_category_id"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'SchoolManagementId' as "school_management_id"
-,_airbyte_data::json->>'UDISE' as "udise"
-,_airbyte_data::json->>'StateCode' as "state_code"
-,_airbyte_data::json->>'SchoolTypeId' as "school_type_id"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'Demography' as "demography"
-,_airbyte_data::json->>'IsImplemented' as "is_implemented"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'SchoolName' as "school_name"
-,_airbyte_data::json->>'BlockName' as "block_name"
-,_airbyte_data::json->>'Panchayat' as "panchayat"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'PhaseId' as "phase_id"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'DivisionId' as "division_id"
-,_airbyte_data::json->>'BlockId' as "block_id"
-,_airbyte_data::json->>'DistrictCode' as "district_code"
-,_airbyte_data::json->>'Pincode' as "pincode"
+    SELECT
+createdby as "createdby",
+statecode as "statecode",
+schoolname as "schoolname",
+blockid as "blockid",
+_airbyte_ab_id as "_airbyte_ab_id",
+updatedon as "updatedon",
+village as "village",
+phaseid as "phaseid",
+divisionid as "divisionid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+schoolcategoryid as "schoolcategoryid",
+updatedby as "updatedby",
+blockname as "blockname",
+createdon as "createdon",
+districtcode as "districtcode",
+demography as "demography",
+panchayat as "panchayat",
+schoolid as "schoolid",
+_airbyte_schools_hashid as "_airbyte_schools_hashid",
+academicyearid as "academicyearid",
+schoolmanagementid as "schoolmanagementid",
+isimplemented as "isimplemented",
+schooltypeid as "schooltypeid",
+udise as "udise",
+clusterid as "clusterid",
+pincode as "pincode",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','schools')}}

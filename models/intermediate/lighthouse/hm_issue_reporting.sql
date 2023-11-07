@@ -10,27 +10,32 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'SubIssue' as "sub_issue"
-,_airbyte_data::json->>'Longitude' as "longitude"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'HMIssueReportingId' as "hmissue_reporting_id"
-,_airbyte_data::json->>'Month' as "month"
-,_airbyte_data::json->>'ApprovalStatus' as "approval_status"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'Remarks' as "remarks"
-,_airbyte_data::json->>'IssueReportDate' as "issue_report_date"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'HMId' as "hmid"
-,_airbyte_data::json->>'StudentType' as "student_type"
-,_airbyte_data::json->>'ApprovedDate' as "approved_date"
-,_airbyte_data::json->>'IssueDetails' as "issue_details"
-,_airbyte_data::json->>'Latitude' as "latitude"
-,_airbyte_data::json->>'NoOfStudents' as "no_of_students"
-,_airbyte_data::json->>'StudentClass' as "student_class"
-,_airbyte_data::json->>'MainIssue' as "main_issue"
-,_airbyte_data::json->>'GeoLocation' as "geo_location"
+    SELECT
+subissue as "subissue",
+latitude as "latitude",
+createdby as "createdby",
+studenttype as "studenttype",
+issuereportdate as "issuereportdate",
+issuemappingid as "issuemappingid",
+_airbyte_ab_id as "_airbyte_ab_id",
+"Month" as "month",
+_airbyte_hmissuereporting_hashid as "_airbyte_hmissuereporting_hashid",
+longitude as "longitude",
+updatedon as "updatedon",
+approveddate as "approveddate",
+studentclass as "studentclass",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+hmid as "hmid",
+updatedby as "updatedby",
+createdon as "createdon",
+hmissuereportingid as "hmissuereportingid",
+remarks as "remarks",
+academicyearid as "academicyearid",
+noofstudents as "noofstudents",
+geolocation as "geolocation",
+approvalstatus as "approvalstatus",
+issuedetails as "issuedetails",
+mainissue as "mainissue",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','hm_issue_reporting')}}

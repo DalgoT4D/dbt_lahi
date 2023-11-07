@@ -10,14 +10,18 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'DivisionName' as "division_name"
-,_airbyte_data::json->>'StateCode' as "state_code"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'DivisionId' as "division_id"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'Description' as "description"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+createdby as "createdby",
+updatedon as "updatedon",
+description as "description",
+divisionid as "divisionid",
+statecode as "statecode",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+divisionname as "divisionname",
+updatedby as "updatedby",
+createdon as "createdon",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+_airbyte_divisions_hashid as "_airbyte_divisions_hashid"
 FROM {{source('source_lahi','divisions')}}

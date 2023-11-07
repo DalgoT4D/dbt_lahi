@@ -10,18 +10,22 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'CountryIcon' as "country_icon"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'CurrencyName' as "currency_name"
-,_airbyte_data::json->>'ISOCode' as "isocode"
-,_airbyte_data::json->>'CountryName' as "country_name"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'CountryCode' as "country_code"
-,_airbyte_data::json->>'CurrencyCode' as "currency_code"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'Description' as "description"
-,_airbyte_data::json->>'ISDCode' as "isdcode"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+isdcode as "isdcode",
+countryname as "countryname",
+createdby as "createdby",
+updatedon as "updatedon",
+_airbyte_countries_hashid as "_airbyte_countries_hashid",
+countrycode as "countrycode",
+countryicon as "countryicon",
+description as "description",
+isocode as "isocode",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+currencyname as "currencyname",
+isactive as "isactive",
+updatedby as "updatedby",
+createdon as "createdon",
+currencycode as "currencycode",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','countries')}}

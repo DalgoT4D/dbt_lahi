@@ -10,16 +10,20 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'VTClassId' as "vtclass_id"
-,_airbyte_data::json->>'VTId' as "vtid"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'ImplementedSchoolId' as "implemented_school_id"
-,_airbyte_data::json->>'DistrictId' as "district_id"
-,_airbyte_data::json->>'DivisionId' as "division_id"
-,_airbyte_data::json->>'VTSchoolSectorId' as "vtschool_sector_id"
-,_airbyte_data::json->>'SectorId' as "sector_id"
-,_airbyte_data::json->>'VCId' as "vcid"
-,_airbyte_data::json->>'VTPId' as "vtpid"
-,_airbyte_data::json->>'ApprovedSchoolId' as "approved_school_id"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+vcid as "vcid",
+vtclassid as "vtclassid",
+_airbyte_schoolsbyvtpsectorinfo_hashid as "_airbyte_schoolsbyvtpsectorinfo_hashid",
+sectorid as "sectorid",
+vtid as "vtid",
+divisionid as "divisionid",
+approvedschoolid as "approvedschoolid",
+vtschoolsectorid as "vtschoolsectorid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+implementedschoolid as "implementedschoolid",
+academicyearid as "academicyearid",
+vtpid as "vtpid",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+districtid as "districtid"
 FROM {{source('source_lahi','schools_by_vtp_sector_info')}}

@@ -10,17 +10,21 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'SchoolVTPSectorId' as "school_vtpsector_id"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'VCId' as "vcid"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'VCSchoolSectorId' as "vcschool_sector_id"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'DateOfRemoval' as "date_of_removal"
-,_airbyte_data::json->>'DateOfAllocation' as "date_of_allocation"
-,_airbyte_data::json->>'IsAYRollover' as "is_ayrollover"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+dateofremoval as "dateofremoval",
+vcid as "vcid",
+createdby as "createdby",
+updatedon as "updatedon",
+schoolvtpsectorid as "schoolvtpsectorid",
+_airbyte_vcschoolsectors_hashid as "_airbyte_vcschoolsectors_hashid",
+dateofallocation as "dateofallocation",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+vcschoolsectorid as "vcschoolsectorid",
+updatedby as "updatedby",
+academicyearid as "academicyearid",
+createdon as "createdon",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+isayrollover as "isayrollover"
 FROM {{source('source_lahi','vc_school_sectors')}}

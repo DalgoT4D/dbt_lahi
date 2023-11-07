@@ -10,16 +10,20 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'SchoolId' as "school_id"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'HMId' as "hmid"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'HMSchoolId' as "hmschool_id"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'DateOfResignation' as "date_of_resignation"
-,_airbyte_data::json->>'DateOfJoining' as "date_of_joining"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+dateofresignation as "dateofresignation",
+createdby as "createdby",
+schoolid as "schoolid",
+updatedon as "updatedon",
+dateofjoining as "dateofjoining",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+hmid as "hmid",
+updatedby as "updatedby",
+hmschoolid as "hmschoolid",
+academicyearid as "academicyearid",
+createdon as "createdon",
+_airbyte_hmschoolsmap_hashid as "_airbyte_hmschoolsmap_hashid",
+_airbyte_emitted_at as "_airbyte_emitted_at"
 FROM {{source('source_lahi','hm_schools_map')}}

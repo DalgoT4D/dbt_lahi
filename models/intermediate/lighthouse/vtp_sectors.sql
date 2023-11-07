@@ -10,16 +10,20 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'SectorId' as "sector_id"
-,_airbyte_data::json->>'VTPId' as "vtpid"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'AcademicYearId' as "academic_year_id"
-,_airbyte_data::json->>'Remarks' as "remarks"
-,_airbyte_data::json->>'VTPSectorId' as "vtpsector_id"
-,_airbyte_data::json->>'IsAYRollover' as "is_ayrollover"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
+    SELECT
+_airbyte_ab_id as "_airbyte_ab_id",
+createdby as "createdby",
+sectorid as "sectorid",
+updatedon as "updatedon",
+vtpsectorid as "vtpsectorid",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+_airbyte_vtpsectors_hashid as "_airbyte_vtpsectors_hashid",
+remarks as "remarks",
+updatedby as "updatedby",
+academicyearid as "academicyearid",
+createdon as "createdon",
+vtpid as "vtpid",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+isayrollover as "isayrollover"
 FROM {{source('source_lahi','vtp_sectors')}}

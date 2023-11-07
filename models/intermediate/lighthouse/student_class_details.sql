@@ -10,29 +10,33 @@
     ]
   ) 
 }}
-    SELECT _airbyte_ab_id 
-,_airbyte_data::json->>'UpdatedOn' as "updated_on"
-,_airbyte_data::json->>'AadhaarNumber' as "aadhaar_number"
-,_airbyte_data::json->>'StudentRollNumber' as "student_roll_number"
-,_airbyte_data::json->>'CreatedOn' as "created_on"
-,_airbyte_data::json->>'FatherName' as "father_name"
-,_airbyte_data::json->>'MotherName' as "mother_name"
-,_airbyte_data::json->>'Religion' as "religion"
-,_airbyte_data::json->>'Mobile' as "mobile"
-,_airbyte_data::json->>'SocialCategory' as "social_category"
-,_airbyte_data::json->>'JobRoleId' as "job_role_id"
-,_airbyte_data::json->>'UpdatedBy' as "updated_by"
-,_airbyte_data::json->>'GuardianName' as "guardian_name"
-,_airbyte_data::json->>'IsActive' as "is_active"
-,_airbyte_data::json->>'StreamId' as "stream_id"
-,_airbyte_data::json->>'IsSameStudentTrade' as "is_same_student_trade"
-,_airbyte_data::json->>'Mobile1' as "mobile1"
-,_airbyte_data::json->>'CreatedBy' as "created_by"
-,_airbyte_data::json->>'CWSNStatus' as "cwsnstatus"
-,_airbyte_data::json->>'SectorId' as "sector_id"
-,_airbyte_data::json->>'AssessmentConducted' as "assessment_conducted"
-,_airbyte_data::json->>'IsStudentVE9And10' as "is_student_ve9and10"
-,_airbyte_data::json->>'StudentId' as "student_id"
-,_airbyte_data::json->>'DateOfBirth' as "date_of_birth"
-,_airbyte_data::json->>'WhatsAppNo' as "whats_app_no"
+    SELECT
+whatsappno as "whatsappno",
+createdby as "createdby",
+guardianname as "guardianname",
+mothername as "mothername",
+dateofbirth as "dateofbirth",
+mobile1 as "mobile1",
+_airbyte_ab_id as "_airbyte_ab_id",
+jobroleid as "jobroleid",
+updatedon as "updatedon",
+sectorid as "sectorid",
+issamestudenttrade as "issamestudenttrade",
+aadhaarnumber as "aadhaarnumber",
+_airbyte_normalized_at as "_airbyte_normalized_at",
+isactive as "isactive",
+cwsnstatus as "cwsnstatus",
+updatedby as "updatedby",
+createdon as "createdon",
+isstudentve9and10 as "isstudentve9and10",
+religion as "religion",
+fathername as "fathername",
+studentrollnumber as "studentrollnumber",
+_airbyte_studentclassdetails_hashid as "_airbyte_studentclassdetails_hashid",
+socialcategory as "socialcategory",
+assessmentconducted as "assessmentconducted",
+studentid as "studentid",
+_airbyte_emitted_at as "_airbyte_emitted_at",
+streamid as "streamid",
+mobile as "mobile"
 FROM {{source('source_lahi','student_class_details')}}
