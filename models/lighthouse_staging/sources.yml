@@ -1,0 +1,102 @@
+version: 2
+
+sources:
+  - name: source_lahi
+    schema: lighthouse_staging
+    tables:
+      - name: academic_years
+        identifier: academicyears
+        description: Academic years
+      - name: blocks
+        identifier: blocks
+        description: employee data new
+      - name: countries
+        identifier: countries
+        description: employee data new
+      - name: districts
+        identifier: districts
+        description: employee data new
+      - name: division_districts
+        identifier: divisiondistricts
+        description: employee data new
+      - name: divisions
+        identifier: divisions
+        description: employee data new
+      - name: hm_issue_reporting
+        identifier: hmissuereporting
+        description: employee data new
+      - name: hm_schools_map
+        identifier: hmschoolsmap
+        description: employee data new
+      - name: job_roles
+        identifier: jobroles
+        description: employee data new
+      - name: roles
+        identifier: roles
+        description: employee data new
+      - name: school_categories
+        identifier: schoolcategories
+        description: employee data new
+      - name: school_classes
+        identifier: schoolclasses
+        description: employee data new
+      - name: schools
+        identifier: schools
+        description: employee data new
+      - name: schools_by_vtp_sector_info
+        identifier: schoolsbyvtpsectorinfo
+        description: employee data new
+      - name: school_ve_incharges
+        identifier: schoolveincharges
+        description: employee data new
+      - name: school_vtp_sectors
+        identifier: schoolvtpsectors
+        description: employee data new
+      - name: sections
+        identifier: sections
+        description: employee data new
+      - name: sector_job_roles
+        identifier: sectorjobroles
+        description: employee data new
+      - name: sectors
+        identifier: sectors
+        description: employee data new
+      - name: states
+        identifier: states
+        description: employee data new
+      - name: student_class_details
+        identifier: studentclassdetails
+        description: employee data new
+      - name: student_classes
+        identifier: studentclasses
+        description: employee data new
+      - name: student_class_mapping
+        identifier: studentclassmapping
+        description: employee data new
+      - name: students_for_exit_form
+        identifier: studentsforexitform
+        description: employee data new
+      - name: vc_school_sectors
+        identifier: vcschoolsectors
+        description: employee data new
+      - name: vocational_training_providers
+        identifier: vocationaltrainingproviders
+        description: employee data new
+      - name: vt_class_students
+        identifier: vtclassstudents
+        description: employee data new
+      - name: vtp_sector_job_roles
+        identifier: vtpsectorjobroles
+        description: employee data new
+      - name: vtp_sectors
+        identifier: vtpsectors
+        description: employee data new
+      - name: vt_school_classes
+        identifier: vtschoolclasses
+        description: employee data new
+      - name: vt_school_sector_job_roles
+        identifier: vtschoolsectorjobroles
+        description: employee data new
+      - name: vt_school_sectors
+        identifier: vtschoolsectors
+        description: employee data new
