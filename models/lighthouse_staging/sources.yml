@@ -64,6 +64,9 @@ sources:
       - name: states
         identifier: states
         description: employee data new
+      - name: vocational_trainers
+        identifier: vocationaltrainers
+        description: employee data new
       - name: student_class_details
         identifier: studentclassdetails
         description: employee data new
