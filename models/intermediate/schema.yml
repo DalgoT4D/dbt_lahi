@@ -1,183 +1,165 @@
 version: 2
 
-models:  
+models:
   - name: andhra_pradesh_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: assam_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: chattisgarh_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: delhi_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: gujarat_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: himachal_pradesh_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: karnataka_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: ladakh_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: maharashtra_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: nagaland_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: odisha_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: tamil_nadu_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: telangana_state_database
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: delhi_vocational_students_exit_survey
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: field_visit_form_lend_a_hand_india
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: pmu_monthly_report
-    description: "Normalized data of PMU monthly report" 
+    description: "Normalized data of PMU monthly report"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
-  - name: gujarat_pathways_internship
-    description: "Normalized data of Gujarat" 
-    +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
-  - name: jharkhand_pathways_internship
-    description: "Normalized data of Jharkhand" 
-    +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: union_state
-    description: "Normalized data of Jharkhand" 
+    description: "Normalized data of Jharkhand"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
   - name: state_aggregation
-    description: "Normalized data of Jharkhand" 
+    description: "Normalized data of Jharkhand"
     +schema: intermediate
-    columns: 
-       - name: _airbyte_ab_id
-         description: "The primary key for this table"
-         tests:
-           - unique
-           - not_null
+    columns:
+      - name: _airbyte_ab_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
