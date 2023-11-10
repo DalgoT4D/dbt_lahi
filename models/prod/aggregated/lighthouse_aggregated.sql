@@ -7,6 +7,11 @@ SELECT
     AY.yearname AS academic_year,
     ST.statename AS state,
     SC.studentid AS student_id,
+    CASE 
+        WHEN CAST(SC.gender AS INTEGER) = 207 THEN 'M'
+        WHEN CAST(SC.gender AS INTEGER) = 208 THEN 'F'
+        ELSE 'Unknown' 
+    END AS gender,
     S.udise AS school_id_udi,
     S.schoolname AS school_name,
     SHC.categoryname AS school_category,
