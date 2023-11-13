@@ -79,6 +79,9 @@ sources:
       - name: students_for_exit_form
         identifier: studentsforexitform
         description: employee data new
+      - name: tool_equipments
+        identifier: toolequipments
+        description: employee data new
       - name: vc_school_sectors
         identifier: vcschoolsectors
         description: employee data new
