@@ -11,6 +11,7 @@ SELECT
         WHEN CAST(SC.gender AS INTEGER) = 208 THEN 'F'
         ELSE 'Unknown' 
     END AS gender,
+    AY.yearname as yearname,
     SHC.categoryname AS school_category,
     ST.statename AS state,
     SE.sectorname AS sector_name,
@@ -18,6 +19,7 @@ SELECT
     VT.fullname AS vt_name,
     VT.isactive AS vt_status,
     JR.jobrolename AS job_role,
+    TE.testatus AS lab_status,
     COUNT(SC.studentid) AS total_students
 FROM {{ ref('schools') }} S
 LEFT JOIN {{ ref('student_classes') }} SC ON S.schoolid = SC.schoolid
@@ -30,5 +32,6 @@ LEFT JOIN {{ ref('vt_class_students') }} VCS ON SC.studentid = VCS.studentid
 LEFT JOIN {{ ref('vocational_trainers') }} VT ON VCS.vtid = VT.vtid
 LEFT JOIN {{ ref('vocational_training_providers') }} VTP ON VT.vtpid = VTP.vtpid
 LEFT JOIN {{ ref('job_roles') }} JR ON SCD.jobroleid = JR.jobroleid
-WHERE AY.yearname = '2022-2023'
-GROUP BY S.udise, S.schoolname, SC.fullname, SC.gender, SHC.categoryname, ST.statename, SE.sectorname, VTP.vtpname, VT.fullname, VT.isactive, JR.jobrolename
+LEFT JOIN {{ ref('tool_equipments') }} TE on S.schoolid = TE.schoolid
+-- WHERE AY.yearname='2022-2023'
+GROUP BY S.udise, SC.fullname, SC.gender, S.schoolname, AY.yearname, SHC.categoryname, ST.statename, SE.sectorname, VTP.vtpname, VT.fullname, VT.isactive, JR.jobrolename, TE.testatus
