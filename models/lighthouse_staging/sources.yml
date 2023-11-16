@@ -106,3 +106,33 @@ sources:
       - name: vt_school_sectors
         identifier: vtschoolsectors
         description: employee data new
+      - name: coordinator_trainers
+        identifier: coordinatortrainers
+        description: coordinators trainers
+      - name: ds_coordinator_attendances
+        identifier: dscoordinatorattendances
+        description: coordinators trainers
+      - name: ds_field_visits
+        identifier: dsfieldvisits
+        description: coordinators trainers
+      - name: ds_guest_lectures
+        identifier: dsguestlectures
+        description: coordinators trainers
+      - name: ds_trainer_attendances
+        identifier: dstrainerattendances
+        description: coordinators trainers
+      - name: ds_trainers
+        identifier: dstrainers
+        description: coordinators trainers
+      - name: toolequipments
+        identifier: toolequipments
+        description: employee data new
+      - name: vtr_training_of_teachers
+        identifier: vtrtrainingofteachers
+        description: coordinators trainers
+      - name: exit_survey_details
+        identifier: exitsurveydetails
+        description: coordinators trainers
+      - name: vt_field_industry_visit_conducted
+        identifier: vtfieldindustryvisitconducted
+        description: coordinators trainers
