@@ -1,3 +1,9 @@
+{{ 
+  config(
+    materialized='table'
+  ) 
+}}
+
 SELECT
     ST.statename AS state,
     S.isactive AS school_status
