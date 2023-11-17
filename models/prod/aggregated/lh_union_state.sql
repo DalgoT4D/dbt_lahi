@@ -6,12 +6,12 @@
 
 WITH SchoolData AS (
     SELECT
-        SC.studentid as student_id,
-        SC.isactive as student_status,
+        SC.studentid AS student_id,
+        SC.isactive AS student_status,
         ST.statename AS state,
         S.isactive AS school_status,
         S.isimplemented AS school_implemented,
-        SE.sectorname AS sector_name,
+        SE.sectorname AS lahi_sector,
         SHC.categoryname AS school_category,
         TE.testatus AS lab_status,
         S.udise AS school_id_udi,
@@ -20,7 +20,7 @@ WITH SchoolData AS (
         VT.isactive AS vt_status,
         VTP.vtpname AS vtp,
         VTP.isactive AS vtp_status,
-        class.classcode as class,
+        class.classcode AS class,
         JR.jobrolename AS job_role,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 207 THEN 1 ELSE 0 END) AS total_boys,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 208 THEN 1 ELSE 0 END) AS total_girls
@@ -50,18 +50,20 @@ SELECT
     SD.state,
     SD.school_status,
     SD.school_implemented,
-    SD.sector_name,
+    SD.lahi_sector,
     SD.school_category,
     SD.class,
-    SD.lab_status,
+    SD.lab,
     SD.school_id_udi,
     SD.vtp,
     SD.vtp_status,
     SD.total_boys,
     SD.total_girls,
-    SD.total_boys + SD.total_girls AS total_student,
+    SD.total_boys + SD.total_girls AS grand_total,
     SD.yearname,
     SD.vt_name,
     SD.vt_status,
-    SD.job_role
+    SD.job_role,
+    CASE WHEN SD.class IN ('9', '10') THEN SD.job_role ELSE NULL END AS lahi_job_role_9_and_10,
+    CASE WHEN SD.class IN ('11', '12') THEN SD.job_role ELSE NULL END AS lahi_job_role_11_and_12
 FROM SchoolData SD
