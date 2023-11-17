@@ -59,6 +59,7 @@ SELECT
     SD.vtp_status,
     SD.total_boys,
     SD.total_girls,
+    SD.total_boys + SD.total_girls AS total_student,
     SD.yearname,
     SD.vt_name,
     SD.vt_status,
