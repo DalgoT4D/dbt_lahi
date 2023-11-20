@@ -13,11 +13,17 @@ WITH SchoolData AS (
         S.isimplemented AS school_implemented,
         SE.sectorname AS lahi_sector,
         SHC.categoryname AS school_category,
-        TE.testatus AS lab_status,
+        TE.testatus AS lab,
+        TE.isactive AS lab_status,
         S.udise AS school_id_udi,
         AY.yearname AS yearname,
         VT.fullname AS vt_name,
-        VT.isactive AS vt_status,
+        CASE 
+            WHEN VT.natureofappointment::text = '56' THEN 'Approved but not appointed'
+            WHEN VT.natureofappointment::text = '58' THEN 'Appointed'
+            ELSE NULL -- Add additional cases if needed
+        END AS vt_status,
+        VT.isactive as vt_is_active,
         VTP.vtpname AS vtp,
         VTP.isactive AS vtp_status,
         class.classcode AS class,
@@ -38,10 +44,10 @@ WITH SchoolData AS (
     LEFT JOIN {{ ref('student_class_details') }} SCD ON SC.studentid = SCD.studentid
     LEFT JOIN {{ ref('sectors') }} SE ON SCD.sectorid = SE.sectorid
     LEFT JOIN {{ ref('job_roles') }} JR ON SCD.jobroleid = JR.jobroleid
-    LEFT JOIN {{ ref('tool_equipments') }} TE ON S.schoolid = TE.schoolid
+    LEFT JOIN {{ ref('tool_equipments') }} TE ON VT.vtid = TE.vtid
     GROUP BY SC.studentid, ST.statename, S.isactive, SE.sectorname, SHC.categoryname,
              TE.testatus, S.udise, AY.yearname, VT.fullname, VT.isactive, JR.jobrolename, VTP.vtpname, 
-             class.classcode, VTP.isactive, SC.isactive, S.isimplemented
+             class.classcode, VTP.isactive, SC.isactive, S.isimplemented, VT.natureofappointment, TE.isactive
 )
 
 SELECT
@@ -52,8 +58,8 @@ SELECT
     SD.school_implemented,
     SD.lahi_sector,
     SD.school_category,
-    SD.class,
     SD.lab,
+    SD.lab_status,
     SD.school_id_udi,
     SD.vtp,
     SD.vtp_status,
@@ -62,7 +68,8 @@ SELECT
     SD.total_boys + SD.total_girls AS grand_total,
     SD.yearname,
     SD.vt_name,
-    SD.vt_status,
+    SD.vt_is_active,
+    SD.vt_status, -- Changed to show vt_status as appointment_status
     SD.job_role,
     CASE WHEN SD.class IN ('9', '10') THEN SD.job_role ELSE NULL END AS lahi_job_role_9_and_10,
     CASE WHEN SD.class IN ('11', '12') THEN SD.job_role ELSE NULL END AS lahi_job_role_11_and_12
