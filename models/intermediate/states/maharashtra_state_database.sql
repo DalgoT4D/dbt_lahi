@@ -33,6 +33,11 @@ SELECT
     "12Boys" AS "12boys",
     "HM_Email_Id_" AS "hm_email_id",
     "Sector_Trade" AS "sector_trade",
+    CASE 
+      WHEN "State" = 'Maharashtra' AND "Sector_Trade" = 'Apparel, Made-Ups & Home Furnishing' THEN 'Apparels, Made Ups & Home Furnishing'
+      WHEN "State" = 'Maharashtra' AND "Sector_Trade" = 'IT/ITeS' THEN 'IT-ITeS'
+      ELSE "Sector_Trade"
+    END AS "lahi_sector_name",
     "11_Total" AS "11_total",
     "10Girls" AS "10girls",
     "School_Category" AS "school_category",
