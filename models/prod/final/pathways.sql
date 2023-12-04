@@ -26,15 +26,24 @@ WITH internship_dates AS (
 )
 
 SELECT 
-    'Internship Ongoing (LH)' AS indicator_name,
-    SUM(CASE
-            -- WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NULL THEN 1
-            WHEN name_of_employer_shop_organization_compa IS NOT NULL THEN 1
-            ELSE 0
-        END) AS indicator_count,
+    indicator_name,
+    COUNT(*) AS indicator_count,
     state,
     gender,
     class,
     month_start AS month
-FROM internship_dates
-GROUP BY state, gender, class, month_start
+FROM (
+    SELECT 
+        CASE 
+            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NULL THEN 'Internship Onboarded'
+            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NOT NULL THEN 'Internship Ongoing (LH)'
+            ELSE 'Other'
+        END AS indicator_name,
+        state,
+        gender,
+        class,
+        month_start
+    FROM internship_dates
+) AS subquery
+WHERE indicator_name IN ('Internship Onboarded', 'Internship Ongoing (LH)')
+GROUP BY state, gender, class, month_start, indicator_name
