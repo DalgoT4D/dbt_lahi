@@ -54,7 +54,7 @@ SELECT
     -- SD.student_id,
     -- SD.student_status,
     SD.state,
-    SD.school_status,
+    SD.school_status::TEXT,
     -- SD.school_implemented,
     SD.state_sector,
     SD.school_category,

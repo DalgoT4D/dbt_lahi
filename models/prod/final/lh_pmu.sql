@@ -18,7 +18,11 @@ SELECT
     lab,
     lab_status,
     vt_status,
-    school_status,
+    CASE
+        WHEN school_status = 'true' THEN 'Started'
+        WHEN school_status = 'false' THEN 'Not Started'
+        ELSE school_status
+    END AS school_status,
     CASE 
         WHEN gender = 'total_boys' THEN 'M'
         WHEN gender = 'total_girls' THEN 'F'
