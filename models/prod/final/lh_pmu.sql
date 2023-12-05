@@ -15,8 +15,12 @@ SELECT
     END AS school_category,
     vtp,
     vt_name,
-    lab,
-    lab_status,
+    CASE
+        WHEN lab = 'Working' THEN 'Available'
+        WHEN lab = 'Partially Working' THEN 'Available'
+        WHEN lab = 'Not Working' THEN 'Not Available'
+        ELSE lab
+    END AS lab_status,
     vt_status,
     CASE
         WHEN school_status = 'true' THEN 'Started'
@@ -35,8 +39,8 @@ SELECT
         END,
         0
     ) AS gender_count,
-    NULL as lahi_job_role,
     state_job_role,
+    NULL as lahi_job_role,
     NULL as grade_group
 FROM (
     SELECT
@@ -47,7 +51,6 @@ FROM (
         vtp,
         vt_name,
         lab,
-        lab_status,
         vt_status,
         school_status,
         UNNEST(ARRAY['total_boys', 'total_girls']) AS gender,
@@ -64,8 +67,8 @@ GROUP BY
     vtp,
     vt_name,
     lab,
-    lab_status,
     vt_status,
     school_status,
     gender,
     state_job_role
+
