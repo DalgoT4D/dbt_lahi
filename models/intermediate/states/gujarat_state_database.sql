@@ -63,7 +63,7 @@ SELECT
     "SchoolTypeName" as "school_type_name",
     "State" as "state",
     "11Boys" as "11boys",
-    "Trade" as "trade",
+    "Trade" as "sector_trade",
     "VT_Mobile_Number" as "vt_mobile_number",
     "Longitude" as "longitude",
     "District" as "district",

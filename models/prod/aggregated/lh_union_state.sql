@@ -21,7 +21,7 @@ WITH SchoolData AS (
         CASE 
             WHEN VT.natureofappointment::text = '56' THEN 'Approved but not appointed'
             WHEN VT.natureofappointment::text = '58' THEN 'Appointed'
-            ELSE NULL -- Add additional cases if needed
+            ELSE NULL
         END AS vt_status,
         VT.isactive as vt_is_active,
         VTP.vtpname AS vtp,
