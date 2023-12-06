@@ -35,8 +35,8 @@ SELECT
 FROM (
     SELECT 
         CASE 
-            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NULL THEN 'Internship Onboarded (LH)'
-            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NOT NULL THEN 'Internship Completed (LH)'
+            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NULL THEN 'Internship Onboarded (PW)'
+            WHEN name_of_employer_shop_organization_compa IS NOT NULL AND internship_completed IS NOT NULL THEN 'Internship Completed (PW)'
             ELSE 'Other'
         END AS indicator_name,
         state,
@@ -45,5 +45,5 @@ FROM (
         month_start
     FROM internship_dates
 ) AS subquery
-WHERE indicator_name IN ('Internship Onboarded (LH)', 'Internship Completed (LH)')
+WHERE indicator_name IN ('Internship Onboarded (PW)', 'Internship Completed (PW)')
 GROUP BY state, gender, class, month_start, indicator_name

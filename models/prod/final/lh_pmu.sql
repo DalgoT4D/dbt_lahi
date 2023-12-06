@@ -5,7 +5,10 @@
 }}
 
 SELECT
-    state,
+    CASE
+        WHEN state = 'Maharashtra' THEN 'Maharashtra (LH)'
+        ELSE state
+    END AS state,
     school_id_udi as school_id,
     state_sector,
     NULL AS lahi_sector,
