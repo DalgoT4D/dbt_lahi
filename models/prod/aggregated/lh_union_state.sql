@@ -10,8 +10,8 @@ WITH SchoolData AS (
         SC.isactive AS student_status,
         ST.statename AS state,
         CASE
-          WHEN S.isactive = 'true' THEN 'Started'
-          WHEN S.isactive = 'false' THEN 'Not Started'
+          WHEN S.isimplemented = 'true' THEN 'Started'
+          WHEN S.isimplemented = 'false' THEN 'Not Started'
           ELSE NULL
         END AS school_status,
         S.isimplemented AS school_implemented,
