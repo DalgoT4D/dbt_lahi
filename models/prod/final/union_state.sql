@@ -10,9 +10,26 @@ SELECT
     school_category,
     vtp,
     vt_name,
-    lab_status,
-    vt_status,
-    school_status,
+    CASE
+        WHEN lab_status = 'No' THEN 'Not Available'
+        WHEN lab_status = 'NA' THEN 'Not Available'
+        WHEN lab_status = 'Dont Know' THEN 'Not Applicable'
+        WHEN lab_status = '0' THEN 'Not Available'
+        WHEN lab_status = 'Yes' THEN 'Available'
+    END AS lab_status,
+    CASE
+        WHEN vt_status = 'No Information Available' THEN 'Not Available'
+        WHEN vt_status = 'Appointed' THEN 'Available'
+        WHEN vt_status = 'Active' THEN 'Available'
+        WHEN vt_status = 'Started but Enrollment zero' THEN 'Available'
+        WHEN vt_status = 'Not Applicable' THEN 'Not Applicable'
+        WHEN vt_status = 'Active' THEN 'Not Available'
+    END AS vt_status,
+    CASE
+        WHEN school_status = 'New' THEN 'Not Started'
+        WHEN school_status = 'Started but enrollment zero' THEN 'Started'
+        WHEN school_status = 'No Information Available' THEN 'Not Started'
+    END AS school_status,
     CASE 
         WHEN gender = 'total_boys' THEN 'M'
         WHEN gender = 'total_girls' THEN 'F'
