@@ -6,7 +6,7 @@
 
 WITH internship_dates AS (
     SELECT 
-        DATE_TRUNC('month', date_of_commencement_internship_progres::DATE)::DATE AS month_start,
+        DATE_TRUNC('month', date_of_completion_internship_progress::DATE)::DATE AS month_start,
         date_of_completion_internship_progress::DATE AS internship_completed,
         school_state AS state,
         CASE 
