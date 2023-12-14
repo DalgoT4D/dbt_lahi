@@ -14,9 +14,26 @@ WITH SchoolData AS (
           WHEN S.isimplemented = 'false' THEN 'Not Started'
           ELSE NULL
         END AS school_status,
-        S.isimplemented AS school_implemented,
         SE.sectorname AS state_sector,
-        SHC.categoryname AS school_category,
+        CASE
+          WHEN S.schooltypeid = '2' THEN 'Non-Composite (9-10)'
+          WHEN S.schooltypeid = '187' THEN 'Composite (9-12)'
+          WHEN S.schooltypeid = '1' THEN 'Composite (9-12)'
+          WHEN S.schooltypeid = '188' THEN 'Non-Composite (9-10)'
+          WHEN S.schooltypeid = '191' THEN 'Non-Composite (9-10)'
+          WHEN S.schooltypeid = '189' THEN 'Composite (9-12)'
+          ELSE S.schooltypeid
+        END AS school_category,
+        CASE
+          WHEN S.schoolmanagementid = '182' THEN 'Government'
+          WHEN S.schoolmanagementid = '194' THEN 'Government'
+          WHEN S.schoolmanagementid = '183' THEN 'Government'
+          WHEN S.schoolmanagementid = '185' THEN 'Government'
+          WHEN S.schoolmanagementid = '404' THEN 'Government'
+          WHEN S.schoolmanagementid = '192' THEN 'Government'
+          WHEN S.schoolmanagementid = '198' THEN 'Government'
+          ELSE S.schoolmanagementid
+        END AS school_type,
         CASE
           WHEN TE.tereceivestatus::text = 'Yes' THEN 'Available'
           WHEN TE.tereceivestatus::text = 'No' THEN 'Not Available'
@@ -47,7 +64,6 @@ WITH SchoolData AS (
     LEFT JOIN {{ ref('vt_class_students') }} VCS ON SC.studentid = VCS.studentid
     LEFT JOIN {{ ref('vt_school_sectors') }} VSS ON S.schoolid = VSS.schoolid
     LEFT JOIN {{ ref('vocational_trainers') }} VT ON VSS.vtid = VT.vtid
-    LEFT JOIN {{ ref('school_categories') }} SHC ON S.schoolcategoryid = SHC.schoolcategoryid
     LEFT JOIN {{ ref('schools_by_vtp_sector_info') }} SVTPS ON S.schoolid = SVTPS.implementedschoolid
     -- LEFT JOIN {{ ref('schools_by_vtp_sector_info') }} SVTPS ON S.schoolid = SVTPS.approvedschoolid
     LEFT JOIN {{ ref('vocational_training_providers') }} VTP ON SVTPS.vtpid = VTP.vtpid
@@ -55,9 +71,10 @@ WITH SchoolData AS (
     LEFT JOIN {{ ref('sectors') }} SE ON SCD.sectorid = SE.sectorid
     LEFT JOIN {{ ref('job_roles') }} JR ON SCD.jobroleid = JR.jobroleid
     LEFT JOIN {{ ref('tool_equipments') }} TE ON S.schoolid = TE.schoolid
-    GROUP BY SC.studentid, ST.statename, S.isactive, SE.sectorname, SHC.categoryname,
-             TE.tereceivestatus, S.udise, AY.yearname, VT.fullname, VT.isactive, JR.jobrolename, VTP.vtpname, 
-             class.classcode, VTP.isactive, SC.isactive, S.isimplemented, VT.natureofappointment
+    GROUP BY SC.studentid, ST.statename, S.isactive, SE.sectorname, TE.tereceivestatus, 
+            S.udise, AY.yearname, VT.fullname, VT.isactive, JR.jobrolename, VTP.vtpname, 
+            class.classcode, VTP.isactive, SC.isactive, S.isimplemented, VT.natureofappointment, 
+            S.schooltypeid, S.schoolmanagementid
 )
 
 SELECT
@@ -65,6 +82,7 @@ SELECT
     school_status::TEXT,
     state_sector,
     school_category,
+    school_type,
     lab_status,
     school_id_udi,
     vtp,
