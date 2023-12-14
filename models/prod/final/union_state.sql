@@ -67,6 +67,7 @@ FROM (
     SELECT
         state,
         school_id_udi as school_id,
+        school_type,
         state_sector,
         lahi_sector,
         school_category,
