@@ -7,7 +7,11 @@ SELECT
     school_id,
     state_sector,
     lahi_sector,
-    school_category,
+    CASE
+        WHEN school_category = 'Composite' THEN 'Composite (9-12)'
+        WHEN school_category = 'Non Composite' THEN 'Non-Composite (9-10)'
+        ELSE school_category
+    END AS school_category,
     vtp,
     vt_name,
     CASE
@@ -16,6 +20,7 @@ SELECT
         WHEN lab_status = 'Dont Know' THEN 'Not Applicable'
         WHEN lab_status = '0' THEN 'Not Available'
         WHEN lab_status = 'Yes' THEN 'Available'
+        ELSE lab_status
     END AS lab_status,
     CASE
         WHEN vt_status = 'No Information Available' THEN 'Not Available'
@@ -23,16 +28,21 @@ SELECT
         WHEN vt_status = 'Active' THEN 'Available'
         WHEN vt_status = 'Started but Enrollment zero' THEN 'Available'
         WHEN vt_status = 'Not Applicable' THEN 'Not Applicable'
-        WHEN vt_status = 'Active' THEN 'Not Available'
+        WHEN vt_status = 'NA' THEN 'Not Available'
+        ELSE vt_status
     END AS vt_status,
     CASE
         WHEN school_status = 'New' THEN 'Not Started'
         WHEN school_status = 'Started but enrollment zero' THEN 'Started'
         WHEN school_status = 'No Information Available' THEN 'Not Started'
+        WHEN school_status = 'Started ' THEN 'Started'
+        WHEN school_status = 'Not started' THEN 'Not Started'
+        ELSE school_status
     END AS school_status,
     CASE 
         WHEN gender = 'total_boys' THEN 'M'
         WHEN gender = 'total_girls' THEN 'F'
+        ELSE gender
     END as gender,
     COALESCE(
         CASE 
