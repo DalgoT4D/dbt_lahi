@@ -7,6 +7,7 @@ SELECT
     school_id,
     state_sector,
     lahi_sector,
+    school_type,
     CASE
         WHEN school_category = 'Composite' THEN 'Composite (9-12)'
         WHEN school_category = 'Non Composite' THEN 'Non-Composite (9-10)'

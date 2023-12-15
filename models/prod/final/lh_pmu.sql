@@ -9,19 +9,13 @@ WITH RankedData AS (
         state,
         school_id_udi,
         state_sector,
-        CASE
-            WHEN school_category = 'Non-Composite' THEN 'Non Composite'
-            ELSE school_category
-        END AS school_category,
+        school_type,
+        school_category,
         vtp,
         vt_name,
         lab_status,
         vt_status,
-        CASE
-            WHEN school_status = 'true' THEN 'Started'
-            WHEN school_status = 'false' THEN 'Not Started'
-            ELSE school_status
-        END AS school_status,
+        school_status,
         CASE 
             WHEN gender = 'total_boys' THEN 'M'
             WHEN gender = 'total_girls' THEN 'F'
@@ -41,6 +35,7 @@ WITH RankedData AS (
             state,
             school_id_udi,
             state_sector,
+            school_type,
             school_category,
             vtp,
             vt_name,
@@ -58,6 +53,7 @@ WITH RankedData AS (
         school_id_udi,
         state_sector,
         school_category,
+        school_type,
         vtp,
         vt_name,
         lab_status,
@@ -73,6 +69,7 @@ SELECT
     school_id_udi,
     state_sector,
     school_category,
+    school_type,
     vtp,
     vt_name,
     lab_status,
