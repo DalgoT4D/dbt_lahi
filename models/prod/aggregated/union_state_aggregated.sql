@@ -23,6 +23,13 @@ with my_cte as ({{ dbt_utils.union_relations(
 SELECT 
     state,
     school_status,
+    CASE
+        WHEN school_type = 'Provincialised' THEN 'Government'
+        WHEN school_type = 'Department of Education' THEN 'Government'
+        WHEN school_type = 'Private Unaided' THEN 'Private - Unaided'
+        WHEN school_type = 'Government Aided' THEN 'Government'
+        ELSE school_type
+    END AS school_type,
     sector_trade as state_sector,
     lahi_sector_name as lahi_sector,
     CASE WHEN "total_boys" ~ '^[0-9\.]+$' THEN "total_boys"::numeric ELSE 0 END as total_boys,

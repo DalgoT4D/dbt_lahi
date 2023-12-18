@@ -51,6 +51,8 @@ sources:
         description: pmu field visit
       - name: employee_data_database
         identifier: _airbyte_raw_employee_database
+      - name: eligible_school_data
+        identifier: _airbyte_raw_eligible_school_database
         description: employee data new
       - name: delhi_pathways_internship
         identifier: _airbyte_raw_delhi

@@ -58,7 +58,7 @@ SELECT
     NULL as "vc_name",
     NULL as "cluster",
     "year_of_approval",
-    NULL as "school_id_udi",
+    "udise" as "school_id_udi",
     "_12_total",
     NULL as "school_type_name",
     "State" as "state",
