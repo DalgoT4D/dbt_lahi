@@ -13,6 +13,9 @@ sources:
       - name: gujarat_database
         identifier: _airbyte_raw_gj_pmu_database_22_23
         description: gujarat google sheet
+      - name: jharkhand_database
+        identifier: _airbyte_raw_jh_pmu_database_22_23
+        description: jharkhand google sheet
       - name: karnataka_database
         identifier: _airbyte_raw_ka_pmu_database_22_23_
         description: karnataka google sheet
@@ -40,12 +43,21 @@ sources:
       - name: odisha_database
         identifier: _airbyte_raw_od_pmu_database_22_23_
         description: odisha database
+      - name: punjab_database
+        identifier: _airbyte_raw_pb_pmu_database_22_23
+        description: punjab database
+      - name: rajasthan_database
+        identifier: _airbyte_raw_rj_pmu_database_22_23
+        description: rajasthan database
       - name: tamil_nadu_database
         identifier: _airbyte_raw_tn_pmu_database_22_23
         description: tamil nadu database
       - name: telangana_database
         identifier: _airbyte_raw_tl_pmu_database_22_23
         description: telangana database
+      - name: uttarakhand_database
+        identifier: _airbyte_raw_uttarakhand_pmu_database_22_23_
+        description: uttarakhand database
       - name: pmu_field_visit_database
         identifier: _airbyte_raw_field_visit_form_lend_a_hand_india
         description: pmu field visit
