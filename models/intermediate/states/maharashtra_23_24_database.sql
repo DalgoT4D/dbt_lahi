@@ -56,7 +56,7 @@ SELECT
     "Academic_Year" AS "academic_year",
     "Total_Boys" AS "total_boys",
     "HM_Phone_Number" AS "hm_phone_number",
-    "Job_Role_For_Class_9_and_10_" AS "job_role_for_class_9_10",
+    "Job_Role_For_Class_9_and_10_" AS "lahi_job_role_9_and_10",
     "Year_of_Implementation" AS "year_of_implementation",
     "VT_Email_Id" AS "vt_email_id",
     "School_Management" AS "school_management",
@@ -67,8 +67,7 @@ SELECT
     "School_Name" AS "school_name",
     "11Girls" AS "girls_11",
     "Year_of_Approval_under_PM_Shri" AS "year_of_approval_under_pm_shri",
---     "Job_Role
--- _For_Class_11_and_12_" AS "job_role_for_class_11_12",
+    "Job_Role_11&12" AS "lahi_job_role_11_and_12",
 --     "School_Sector_Type
 -- _
 -- _Single_Double_Triple" AS "school_sector_type_single_double_triple",
@@ -79,4 +78,3 @@ SELECT
     "Total_Girls" AS "total_girls",
     "Year_of_Approval_under_Hub_Spoke" AS "year_of_approval_under_hub_spoke"
 FROM mycte
-
