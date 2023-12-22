@@ -4,6 +4,8 @@
 
 SELECT
     state,
+    academic_year,
+    year_of_approval,
     school_id,
     state_sector,
     lahi_sector,
@@ -56,17 +58,24 @@ SELECT
     state_job_role,
     lahi_job_role,
     CASE 
-        WHEN state_job_role_11 IS NOT NULL OR state_job_role_12 IS NOT NULL OR state_job_role_11_and_12 IS NOT NULL OR state_job_role_9_and_10 IS NOT NULL THEN 
-            CASE 
-                WHEN state_job_role_11 IS NOT NULL THEN '11'
-                WHEN state_job_role_12 IS NOT NULL THEN '12'
-                WHEN state_job_role_11_and_12 IS NOT NULL THEN '11-12'
-                WHEN state_job_role_9_and_10 IS NOT NULL THEN '9-10'
-            END
+        WHEN state_job_role_11 IS NOT NULL OR state_job_role_12 IS NOT NULL OR 
+            state_job_role_11_and_12 IS NOT NULL OR state_job_role_9_and_10 IS NOT NULL  OR 
+            lahi_job_role_11_and_12 IS NOT NULL OR lahi_job_role_9_and_10 IS NOT NULL
+            THEN 
+                CASE 
+                    WHEN state_job_role_11 IS NOT NULL THEN '11'
+                    WHEN state_job_role_12 IS NOT NULL THEN '12'
+                    WHEN state_job_role_11_and_12 IS NOT NULL THEN '11-12'
+                    WHEN state_job_role_9_and_10 IS NOT NULL THEN '9-10'
+                    WHEN lahi_job_role_11_and_12 IS NOT NULL THEN '11-12'
+                    WHEN lahi_job_role_9_and_10 IS NOT NULL THEN '9-10'
+                END
     END as grade_group
 FROM (
     SELECT
         state,
+        academic_year,
+        year_of_approval,
         school_id_udi as school_id,
         school_type,
         state_sector,
@@ -90,6 +99,8 @@ FROM (
             WHEN lahi_job_role_11_and_12 IS NOT NULL THEN lahi_job_role_11_and_12
             WHEN lahi_job_role_9_and_10 IS NOT NULL THEN lahi_job_role_9_and_10
         END as lahi_job_role,
+        lahi_job_role_11_and_12,
+        lahi_job_role_9_and_10,
         state_job_role_11,
         state_job_role_12,
         state_job_role_11_and_12,
