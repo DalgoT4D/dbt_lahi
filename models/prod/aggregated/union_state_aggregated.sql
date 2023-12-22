@@ -13,22 +13,44 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('jharkhand_state_database'),
         ref('karnataka_state_database'),
         ref('ladakh_state_database'),
-        ref('maharashtra_state_database'),
         ref('nagaland_state_database'),
         ref('odisha_state_database'),
         ref('punjab_state_database'),
         ref('rajasthan_state_database'),
         ref('tamil_nadu_state_database'),
         ref('telangana_state_database'),
-        ref('uttarakhand_state_database')
+        ref('uttarakhand_state_database'),
+        ref('andhra_pradesh_23_24_database'),
+        ref('assam_23_24_database'),
+        ref('chattisgarh_23_24_database'),
+        ref('delhi_23_24_database'),
+        ref('gujarat_23_24_database'),
+        ref('himachal_pradesh_23_24_database'),
+        ref('jharkhand_23_24_database'),
+        ref('karnataka_23_24_database'),
+        ref('ladakh_23_24_database'),
+        ref('nagaland_23_24_database'),
+        ref('odisha_23_24_database'),
+        ref('punjab_23_24_database'),
+        ref('rajasthan_23_24_database'),
+        ref('tamil_nadu_23_24_database'),
+        ref('telangana_23_24_database'),
+        ref('uttarakhand_23_24_database'),
+        ref('lh_union_state')
     ]
 ) }})
 
 SELECT 
     state,
+    academic_year,
+    year_of_approval,
     school_status,
     CASE
         WHEN school_type = 'Provincialised' THEN 'Government'
+        WHEN school_type = 'Provincialized' THEN 'Government'
+        WHEN school_type = 'GOVT. PROVINCIALISED' THEN 'Government'
+        WHEN school_type = 'GOVT AIDED' THEN 'Government'
+        WHEN school_type = 'Govt.' THEN 'Government'
         WHEN school_type = 'Department of Education' THEN 'Government'
         WHEN school_type = 'Private Unaided' THEN 'Private - Unaided'
         WHEN school_type = 'Government Aided' THEN 'Government'
