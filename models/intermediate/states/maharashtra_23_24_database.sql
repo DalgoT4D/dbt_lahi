@@ -56,7 +56,7 @@ SELECT
     "Academic_Year" AS "academic_year",
     "Total_Boys" AS "total_boys",
     "HM_Phone_Number" AS "hm_phone_number",
-    "Job_Role_For_Class_9_and_10_" AS "lahi_job_role_9_and_10",
+    "Job_Role_9&10" AS "lahi_job_role_9_and_10",
     "Year_of_Implementation" AS "year_of_implementation",
     "VT_Email_Id" AS "vt_email_id",
     "School_Management" AS "school_management",
