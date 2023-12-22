@@ -4,6 +4,23 @@
 
 with my_cte as ({{ dbt_utils.union_relations(
     relations=[
+        ref('andhra_pradesh_state_database'),
+        ref('assam_state_database'),
+        ref('chattisgarh_state_database'),
+        ref('delhi_state_database'),
+        ref('gujarat_state_database'),
+        ref('himachal_pradesh_state_database'),
+        ref('jharkhand_state_database'),
+        ref('karnataka_state_database'),
+        ref('ladakh_state_database'),
+        ref('maharashtra_state_database'),
+        ref('nagaland_state_database'),
+        ref('odisha_state_database'),
+        ref('punjab_state_database'),
+        ref('rajasthan_state_database'),
+        ref('tamil_nadu_state_database'),
+        ref('telangana_state_database'),
+        ref('uttarakhand_state_database'),
         ref('andhra_pradesh_23_24_database'),
         ref('assam_23_24_database'),
         ref('chattisgarh_23_24_database'),
