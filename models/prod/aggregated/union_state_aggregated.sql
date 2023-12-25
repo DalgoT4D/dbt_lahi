@@ -43,7 +43,6 @@ with my_cte as ({{ dbt_utils.union_relations(
 SELECT 
     state,
     academic_year,
-    year_of_approval,
     school_status,
     CASE
         WHEN school_type = 'Provincialised' THEN 'Government'

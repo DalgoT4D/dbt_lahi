@@ -5,7 +5,6 @@
 SELECT
     state,
     academic_year,
-    year_of_approval,
     school_id,
     state_sector,
     lahi_sector,
@@ -75,7 +74,6 @@ FROM (
     SELECT
         state,
         academic_year,
-        year_of_approval,
         school_id_udi as school_id,
         school_type,
         state_sector,
