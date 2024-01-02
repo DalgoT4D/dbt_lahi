@@ -14,7 +14,7 @@ WITH SchoolData AS (
           WHEN S.isimplemented = 'false' THEN 'Not Started'
           ELSE NULL
         END AS school_status,
-        SE.sectorname AS lahi_sector_name,
+        SE.sectorname AS state_sector,
         CASE
           WHEN S.schooltypeid = '2' THEN 'Non-Composite (9-10)'
           WHEN S.schooltypeid = '187' THEN 'Composite (9-12)'
@@ -51,7 +51,7 @@ WITH SchoolData AS (
         VTP.vtpname AS vtp,
         VTP.isactive AS vtp_status,
         class.classcode AS class,
-        JR.jobrolename AS lahi_job_role,
+        JR.jobrolename AS state_job_role,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 207 THEN 1 ELSE 0 END) AS total_boys,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 208 THEN 1 ELSE 0 END) AS total_girls
     FROM {{ ref('schools') }} S
@@ -80,7 +80,7 @@ WITH SchoolData AS (
 SELECT
     state,
     school_status::TEXT,
-    lahi_sector_name,
+    state_sector,
     school_category,
     school_type,
     lab,
@@ -92,12 +92,12 @@ SELECT
     total_boys + total_girls AS grand_total,
     vt_name,
     vt_status,
-    lahi_job_role
+    state_job_role
 FROM (
     SELECT
         SD.*,
-        ROW_NUMBER() OVER (PARTITION BY school_id_udi, lahi_job_role, lahi_sector_name ORDER BY school_id_udi) AS row_num
+        ROW_NUMBER() OVER (PARTITION BY school_id_udi, state_job_role, state_sector ORDER BY school_id_udi) AS row_num
     FROM SchoolData SD
-    WHERE lahi_sector_name IS NOT NULL AND lahi_job_role IS NOT NULL
+    WHERE state_sector IS NOT NULL AND state_job_role IS NOT NULL
 ) AS RankedData
 WHERE row_num = 1
