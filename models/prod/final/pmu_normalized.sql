@@ -145,6 +145,7 @@ sector_counts AS (
         ]) AS indicator_count
     FROM aggregated_data
 )
+
 SELECT 
     state,
     month,
@@ -161,3 +162,14 @@ SELECT
     indicator_name,
     indicator_count
 FROM sector_counts
+
+UNION ALL
+
+SELECT
+    state,
+    month,
+    class,
+    gender,
+    indicator_name,
+    indicator_count
+FROM {{ ref('pathways') }}
