@@ -20,6 +20,7 @@ with mycte as (
 
 SELECT 
     _airbyte_ab_id,
+    '2022-23' as "academic_year",
     NULL as "village",
     NULL as "s_no",
     "VC_Email" as "vc_email_id",

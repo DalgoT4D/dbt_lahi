@@ -38,7 +38,7 @@ WITH SchoolData AS (
           WHEN TE.tereceivestatus::text = 'Yes' THEN 'Available'
           WHEN TE.tereceivestatus::text = 'No' THEN 'Not Available'
           ELSE TE.tereceivestatus
-        END AS lab_status,
+        END AS lab,
         S.udise AS school_id_udi,
         AY.yearname AS yearname,
         VT.fullname AS vt_name,
@@ -51,7 +51,7 @@ WITH SchoolData AS (
         VTP.vtpname AS vtp,
         VTP.isactive AS vtp_status,
         class.classcode AS class,
-        JR.jobrolename AS job_role,
+        JR.jobrolename AS state_job_role,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 207 THEN 1 ELSE 0 END) AS total_boys,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 208 THEN 1 ELSE 0 END) AS total_girls
     FROM {{ ref('schools') }} S
@@ -83,20 +83,21 @@ SELECT
     state_sector,
     school_category,
     school_type,
-    lab_status,
+    lab,
     school_id_udi,
+    yearname as academic_year,
     vtp,
     total_boys,
     total_girls,
     total_boys + total_girls AS grand_total,
     vt_name,
     vt_status,
-    job_role
+    state_job_role
 FROM (
     SELECT
         SD.*,
-        ROW_NUMBER() OVER (PARTITION BY school_id_udi, job_role, state_sector ORDER BY school_id_udi) AS row_num
+        ROW_NUMBER() OVER (PARTITION BY school_id_udi, state_job_role, state_sector ORDER BY school_id_udi) AS row_num
     FROM SchoolData SD
-    WHERE state_sector IS NOT NULL AND job_role IS NOT NULL
+    WHERE state_sector IS NOT NULL AND state_job_role IS NOT NULL
 ) AS RankedData
 WHERE row_num = 1

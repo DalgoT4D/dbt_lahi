@@ -13,6 +13,7 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('jharkhand_state_database'),
         ref('karnataka_state_database'),
         ref('ladakh_state_database'),
+        ref('maharashtra_state_database'),
         ref('nagaland_state_database'),
         ref('odisha_state_database'),
         ref('punjab_state_database'),
@@ -29,14 +30,14 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('jharkhand_23_24_database'),
         ref('karnataka_23_24_database'),
         ref('ladakh_23_24_database'),
+        ref('maharashtra_23_24_database'),
         ref('nagaland_23_24_database'),
         ref('odisha_23_24_database'),
         ref('punjab_23_24_database'),
         ref('rajasthan_23_24_database'),
         ref('tamil_nadu_23_24_database'),
         ref('telangana_23_24_database'),
-        ref('uttarakhand_23_24_database'),
-        ref('lh_union_state')
+        ref('uttarakhand_23_24_database')
     ]
 ) }})
 
