@@ -42,7 +42,12 @@ with my_cte as ({{ dbt_utils.union_relations(
 
 SELECT 
     state,
-    academic_year,
+    CASE
+        WHEN academic_year = '2021-2022' THEN '2021-22'
+        WHEN academic_year = '2022-2023' THEN '2022-23'
+        WHEN academic_year = '2023-2024' THEN '2023-24'
+        ELSE academic_year
+    END AS academic_year,
     school_status,
     CASE
         WHEN school_type = 'Provincialised' THEN 'Government'
