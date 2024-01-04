@@ -41,6 +41,9 @@ SELECT
         WHEN school_status = 'Not started' THEN 'Not Started'
         ELSE school_status
     END AS school_status,
+    total_boys,
+    total_girls,
+    grand_total,
     CASE 
         WHEN gender = 'total_boys' THEN 'M'
         WHEN gender = 'total_girls' THEN 'F'
@@ -56,6 +59,12 @@ SELECT
     ) as gender_count,
     state_job_role,
     lahi_job_role,
+    state_job_role_9_and_10,
+    state_job_role_11,
+    state_job_role_11_and_12,
+    state_job_role_12,
+    lahi_job_role_11_and_12,
+    lahi_job_role_9_and_10,
     CASE 
         WHEN state_job_role_11 IS NOT NULL OR state_job_role_12 IS NOT NULL OR 
             state_job_role_11_and_12 IS NOT NULL OR state_job_role_9_and_10 IS NOT NULL  OR 
@@ -86,6 +95,7 @@ FROM (
         school_status,
         total_boys,
         total_girls,
+        grand_total,
         unnest(array['total_boys', 'total_girls']) as gender,
         CASE 
             WHEN state_job_role_11 IS NOT NULL THEN state_job_role_11
