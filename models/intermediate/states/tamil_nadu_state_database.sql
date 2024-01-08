@@ -29,7 +29,7 @@ SELECT
     "Books_Class_9" as "books_class_9",
     "Job_Role_For_Class_11_" as "state_job_role_11",
     "Job_Role_For_Class_12_" as "state_job_role_12",
-    "Job_Role_For_Class_9_and_10_" as "state_job_role_9_and_10",
+    "Job_Role_For_Class_9_and_10_" as "lahi_job_role_9_and_10",
     NULL as "remarks",
     NULL as "12boys",
     NULL as "hm_email_id",

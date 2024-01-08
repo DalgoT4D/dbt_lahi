@@ -60,7 +60,7 @@ SELECT
         WHEN school_type = 'Government Aided' THEN 'Government'
         ELSE school_type
     END AS school_type,
-    sector_trade as state_sector,
+    COALESCE(state_sector, sector_trade) AS state_sector,
     lahi_sector_name as lahi_sector,
     CASE WHEN "total_boys" ~ '^[0-9\.]+$' THEN "total_boys"::numeric ELSE 0 END as total_boys,
     CASE WHEN "total_girls" ~ '^[0-9\.]+$' THEN "total_girls"::numeric ELSE 0 END as total_girls,
