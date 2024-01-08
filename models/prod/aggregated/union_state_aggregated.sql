@@ -42,7 +42,12 @@ with my_cte as ({{ dbt_utils.union_relations(
 
 SELECT 
     state,
-    academic_year,
+    CASE
+        WHEN academic_year = '2021-2022' THEN '2021-22'
+        WHEN academic_year = '2022-2023' THEN '2022-23'
+        WHEN academic_year = '2023-2024' THEN '2023-24'
+        ELSE academic_year
+    END AS academic_year,
     school_status,
     CASE
         WHEN school_type = 'Provincialised' THEN 'Government'
@@ -55,7 +60,7 @@ SELECT
         WHEN school_type = 'Government Aided' THEN 'Government'
         ELSE school_type
     END AS school_type,
-    sector_trade as state_sector,
+    COALESCE(state_sector, sector_trade) AS state_sector,
     lahi_sector_name as lahi_sector,
     CASE WHEN "total_boys" ~ '^[0-9\.]+$' THEN "total_boys"::numeric ELSE 0 END as total_boys,
     CASE WHEN "total_girls" ~ '^[0-9\.]+$' THEN "total_girls"::numeric ELSE 0 END as total_girls,
