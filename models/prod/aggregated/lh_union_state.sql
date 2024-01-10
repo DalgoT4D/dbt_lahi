@@ -51,7 +51,7 @@ WITH SchoolData AS (
         VTP.vtpname AS vtp,
         VTP.isactive AS vtp_status,
         class.classcode AS class,
-        JR.jobrolename AS state_job_role,
+        JR.jobrolename AS lahi_job_role,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 207 THEN 1 ELSE 0 END) AS total_boys,
         SUM(CASE WHEN CAST(C.gender AS INTEGER) = 208 THEN 1 ELSE 0 END) AS total_girls
     FROM {{ ref('schools') }} S
@@ -81,6 +81,7 @@ SELECT
     state,
     school_status::TEXT,
     state_sector,
+    class,
     school_category,
     school_type,
     lab,
@@ -92,12 +93,12 @@ SELECT
     total_boys + total_girls AS grand_total,
     vt_name,
     vt_status,
-    state_job_role
+    lahi_job_role
 FROM (
     SELECT
         SD.*,
-        ROW_NUMBER() OVER (PARTITION BY school_id_udi, state_job_role, state_sector ORDER BY school_id_udi) AS row_num
+        ROW_NUMBER() OVER (PARTITION BY school_id_udi, lahi_job_role, state_sector ORDER BY school_id_udi) AS row_num
     FROM SchoolData SD
-    WHERE state_sector IS NOT NULL AND state_job_role IS NOT NULL
+    WHERE state_sector IS NOT NULL AND lahi_job_role IS NOT NULL
 ) AS RankedData
 WHERE row_num = 1
