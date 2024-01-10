@@ -71,6 +71,25 @@ SELECT
     CASE WHEN "grand_total" ~ '^[0-9\.]+$' THEN "grand_total"::numeric ELSE 0 END as grand_total,
     vt_name,
     vt_status,
+    CASE 
+        WHEN girls_9 IS NOT NULL OR girls_10 IS NOT NULL OR 
+            girls_12 IS NOT NULL OR girls_11 IS NOT NULL  OR 
+            boys_9 IS NOT NULL OR boys_10 IS NOT NULL OR 
+            boys_12 IS NOT NULL OR boys_11 IS NOT NULL
+            THEN 
+                CASE 
+                    WHEN girls_9 IS NOT NULL THEN '9'
+                    WHEN girls_10 IS NOT NULL THEN '10'
+                    WHEN girls_11 IS NOT NULL THEN '11'
+                    WHEN girls_12 IS NOT NULL THEN '12'
+                    WHEN boys_9 IS NOT NULL THEN '9'
+                    WHEN boys_10 IS NOT NULL THEN '10'
+                    WHEN boys_11 IS NOT NULL THEN '11'
+                    WHEN boys_12 IS NOT NULL THEN '12'
+                    ELSE '0'
+                END
+        ELSE '0'
+    END as class,
     "state_job_role_11",
     "state_job_role_12",
     state_job_role_11_and_12,
