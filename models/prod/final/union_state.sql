@@ -57,6 +57,7 @@ SELECT
         END,
         0
     ) as gender_count,
+    class,
     state_job_role,
     lahi_job_role,
     state_job_role_9_and_10,
@@ -64,21 +65,7 @@ SELECT
     state_job_role_11_and_12,
     state_job_role_12,
     lahi_job_role_11_and_12,
-    lahi_job_role_9_and_10,
-    CASE 
-        WHEN state_job_role_11 IS NOT NULL OR state_job_role_12 IS NOT NULL OR 
-            state_job_role_11_and_12 IS NOT NULL OR state_job_role_9_and_10 IS NOT NULL  OR 
-            lahi_job_role_11_and_12 IS NOT NULL OR lahi_job_role_9_and_10 IS NOT NULL
-            THEN 
-                CASE 
-                    WHEN state_job_role_11 IS NOT NULL THEN '11'
-                    WHEN state_job_role_12 IS NOT NULL THEN '12'
-                    WHEN state_job_role_11_and_12 IS NOT NULL THEN '11-12'
-                    WHEN state_job_role_9_and_10 IS NOT NULL THEN '9-10'
-                    WHEN lahi_job_role_11_and_12 IS NOT NULL THEN '11-12'
-                    WHEN lahi_job_role_9_and_10 IS NOT NULL THEN '9-10'
-                END
-    END as grade_group
+    lahi_job_role_9_and_10
 FROM (
     SELECT
         state,
@@ -93,6 +80,7 @@ FROM (
         lab as lab_status,
         vt_status,
         school_status,
+        class,
         total_boys,
         total_girls,
         grand_total,
