@@ -36,7 +36,7 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('tamil_nadu_23_24_database'),
         ref('telangana_23_24_database'),
         ref('uttarakhand_23_24_database'),
-        ref('lh_union_state')
+        ref('lh_pmu')
     ]
 ) }})
 
