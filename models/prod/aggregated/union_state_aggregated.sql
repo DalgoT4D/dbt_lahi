@@ -36,13 +36,18 @@ with my_cte as ({{ dbt_utils.union_relations(
         ref('tamil_nadu_23_24_database'),
         ref('telangana_23_24_database'),
         ref('uttarakhand_23_24_database'),
-        ref('lh_union_state')
+        ref('lh_pmu')
     ]
 ) }})
 
 SELECT 
     state,
-    academic_year,
+    CASE
+        WHEN academic_year = '2021-2022' THEN '2021-22'
+        WHEN academic_year = '2022-2023' THEN '2022-23'
+        WHEN academic_year = '2023-2024' THEN '2023-24'
+        ELSE academic_year
+    END AS academic_year,
     school_status,
     CASE
         WHEN school_type = 'Provincialised' THEN 'Government'
@@ -55,7 +60,7 @@ SELECT
         WHEN school_type = 'Government Aided' THEN 'Government'
         ELSE school_type
     END AS school_type,
-    sector_trade as state_sector,
+    COALESCE(state_sector, sector_trade) AS state_sector,
     lahi_sector_name as lahi_sector,
     CASE WHEN "total_boys" ~ '^[0-9\.]+$' THEN "total_boys"::numeric ELSE 0 END as total_boys,
     CASE WHEN "total_girls" ~ '^[0-9\.]+$' THEN "total_girls"::numeric ELSE 0 END as total_girls,
@@ -66,6 +71,25 @@ SELECT
     CASE WHEN "grand_total" ~ '^[0-9\.]+$' THEN "grand_total"::numeric ELSE 0 END as grand_total,
     vt_name,
     vt_status,
+    CASE 
+        WHEN girls_9 IS NOT NULL OR girls_10 IS NOT NULL OR 
+            girls_12 IS NOT NULL OR girls_11 IS NOT NULL  OR 
+            boys_9 IS NOT NULL OR boys_10 IS NOT NULL OR 
+            boys_12 IS NOT NULL OR boys_11 IS NOT NULL
+            THEN 
+                CASE 
+                    WHEN girls_9 IS NOT NULL THEN '9'
+                    WHEN girls_10 IS NOT NULL THEN '10'
+                    WHEN girls_11 IS NOT NULL THEN '11'
+                    WHEN girls_12 IS NOT NULL THEN '12'
+                    WHEN boys_9 IS NOT NULL THEN '9'
+                    WHEN boys_10 IS NOT NULL THEN '10'
+                    WHEN boys_11 IS NOT NULL THEN '11'
+                    WHEN boys_12 IS NOT NULL THEN '12'
+                    ELSE '0'
+                END
+        ELSE '0'
+    END as class,
     "state_job_role_11",
     "state_job_role_12",
     state_job_role_11_and_12,
