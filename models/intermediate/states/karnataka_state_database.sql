@@ -1,13 +1,6 @@
 {{ config(
-  materialized='table',
-   indexes=[
-      {'columns': ['_airbyte_ab_id'], 'type': 'hash'}
-    ]
-
+  materialized='table'
 ) }}
-
--- Creating a CTE that flattens the JSON data from the raw_enrollment table
-
 
 with mycte as (
 {{
@@ -16,88 +9,88 @@ with mycte as (
                         source('source_lahi', 'karnataka_database'), 
                 ],
         json_column = '_airbyte_data'
-    )
+)
 }})
 
 
 SELECT 
     _airbyte_ab_id,
-    '2022-23' as "academic_year",
-    NULL as "village",
-    NULL as "s_no",
-    "vc_email_id",
-    "hm_name",
-    "block",
-    "books_class_9",
-    "jobrole_11_12" as "state_job_role_11_and_12",
+    '2022-23' as academic_year,
+    NULL as village,
+    NULL as s_no,
+    "VC_Email_ID" as vc_email_id,
+    "HM_Name" as hm_name,
+    "Block" as block,
+    "Books_Class_9" as books_class_9,
+    "Jobrole_11_12" as state_job_role_11_and_12,
     CASE 
-        WHEN "jobrole_11_12" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
-        WHEN "jobrole_11_12" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
-        WHEN "jobrole_11_12" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        ELSE "jobrole_11_12"
-    END AS "lahi_job_role_11_and_12",
-    "jobrole_9_10" as "state_job_role_9_and_10",
+        WHEN "Jobrole_11_12" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Jobrole_11_12" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Jobrole_11_12" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "Jobrole_11_12"
+    END AS lahi_job_role_11_and_12,
+    "Jobrole_9_10" as state_job_role_9_and_10,
     CASE 
-        WHEN "jobrole_9_10" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
-        WHEN "jobrole_9_10" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
-        WHEN "jobrole_9_10" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        ELSE "jobrole_9_10"
-    END AS "lahi_job_role_9_and_10",
-    NULL as "remarks",
-    NULL as "boys_12",
-    "hm_email_id" as "hm_email_id",
-    "sector" as "sector_trade",
+        WHEN "Jobrole_9_10" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Jobrole_9_10" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Jobrole_9_10" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        ELSE "Jobrole_9_10"
+    END AS lahi_job_role_9_and_10,
+    NULL as remarks,
+    "Class12_B" as boys_12,
+    "HM_Email_ID" as hm_email_id,
+    "Sector" as sector_trade,
     "_11_total" as "11_total",
-    "class10_g" as "girls_10",
-    "school_category",
-    "class10_b" as "boys_10",
-    "lab",
-    NULL as "po_email_id",
-    "vc_phone_number",
-    "class9_g" as "girls_9",
-    NULL as "pincode",
-    NULL as "vc_name",
-    NULL as "cluster",
-    "year_of_approval",
-    "udise" as "school_id_udi",
+    "Class10_G" as girls_10,
+    "School_Category",
+    "Class10_B" as boys_10,
+    "Lab",
+    NULL as po_email_id,
+    "Vc_Phone_Number" as "vc_phone_number",
+    "Class9_G" as girls_9,
+    NULL as pincode,
+    NULL as vc_name,
+    NULL as cluster,
+    "Year_of_Approval",
+    "Udise" as school_id_udi,
     "_12_total",
-    NULL as "school_type_name",
-    "State" as "state",
-    "class11_b" as "boys_11",
-    NULL as "trade",
-    NULL as "longitude",
-    "vt_mobile_number",
-    "District" as "district",
-    "vtp",
-    NULL as "approval_year",
-    "class9_b" as "boys_9",
-    "grand_total",
-    "class12_g" as "girls_12",
-    "total_boys",
-    "hm_phone_number",
-    "vt_email_id",
-    "books_class_11" as "books_class_11",
-    "vt_name",
-    "school_management",
-    "school_status",
+    NULL as school_type_name,
+    "State" as state,
+    "Class11_B" as boys_11,
+    NULL as trade,
+    NULL as longitude,
+    "VT_Mobile_Number",
+    "District" as district,
+    "VTP",
+    "Year_of_Approval" as approval_year,
+    "Class9_B" as boys_9,
+    "Grand_Total",
+    "Class12_G" as girls_12,
+    "Total_Boys",
+    "HM_Phone_Number",
+    "VT_Email_ID",
+    "Books_Class_11" as books_class_11,
+    "VT_Name",
+    "School_Management",
+    "School_Status",
     "_10_total" as "10_total",
-    "school_type",
-    NULL as "po_mob_number",
-    "school_name",
-    "class11_g" as "girls_11",
-    NULL as "po_name",
-    NULL as "school_location_name",
-    NULL as "code_24070101811",
-    NULL as "schoolcategory",
-    NULL as "latitude",
-    "books_class_12" as "books_class_12",
-    NULL as "udise_code",
-    "vt_status",
+    "School_Type",
+    NULL as po_mob_number,
+    "School_Name",
+    "Class11_G" as girls_11,
+    NULL as po_name,
+    NULL as school_location_name,
+    NULL as code_24070101811,
+    NULL as schoolcategory,
+    NULL as latitude,
+    "Books_Class_12" as books_class_12,
+    NULL as udise_code,
+    "VT_Status",
     "Total_Class_9" as "9_total",
-    NULL as "school_type_1",
-    "gender",
-    "books_class_10" as "books_class_10",
-    "Division" as "division",
-    "total_girls",
-    NULL as "applicable_classes_10"
+    NULL as school_type_1,
+    "Gender",
+    "Books_Class_10" as books_class_10,
+    "Division" as division,
+    "Total_Girls",
+    NULL as applicable_classes_10
 FROM mycte
