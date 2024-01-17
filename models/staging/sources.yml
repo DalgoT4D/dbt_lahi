@@ -5,55 +5,55 @@ sources:
     schema: staging
     tables:
       - name: delhi_database
-        identifier: _airbyte_raw_delhi_pmu_database_22_23_
+        identifier: _airbyte_raw_dl_db_22_23
         description: delhi google sheet
       - name: maharashtra_database
-        identifier: _airbyte_raw_state_pmu_database_22_23_
+        identifier: _airbyte_raw_mh_db_22_23
         description: maharashtra google sheet
       - name: gujarat_database
-        identifier: _airbyte_raw_gj_pmu_database_22_23
+        identifier: _airbyte_raw_gj_db_22_23
         description: gujarat google sheet
       - name: jharkhand_database
-        identifier: _airbyte_raw_jh_pmu_database_22_23
+        identifier: _airbyte_raw_jh_db_22_23
         description: jharkhand google sheet
       - name: karnataka_database
-        identifier: _airbyte_raw_ka_pmu_database_22_23_
+        identifier: _airbyte_raw_ka_school_db_22_23
         description: karnataka google sheet
       - name: himachal_pradesh_database
-        identifier: _airbyte_raw_hp_pmu_database_22_23_
+        identifier: _airbyte_raw_hp_school_db_22_23
         description: himachal pradesh google sheet
       - name: assam_database
         identifier: _airbyte_raw_assam_pmu_database_22_23
         description: assam_google sheet
       - name: chattisgarh_database
-        identifier: _airbyte_raw_cg_pmu_database_22_23
+        identifier: _airbyte_raw_cg_db_22_23
         description: chattisgarh google sheet
       - name: andhra_pradesh_database
-        identifier: _airbyte_raw_andhra_pmu_database_22_23_
+        identifier: _airbyte_raw_ap_school_db_22_23
         description: andhra pradesh google sheet
       - name: pmu_monthly_report_database
         identifier: _airbyte_raw_pmu_monthly_report
         description: pmu monthly report
       - name: ladakh_database
-        identifier: _airbyte_raw_ladakh_pmu_database_22_23_
+        identifier: _airbyte_raw_ld_db_22_23
         description: ladakh database
       - name: nagaland_database
-        identifier: _airbyte_raw_ng_pmu_database_22_23
+        identifier: _airbyte_raw_ng_db_22_23
         description: nagaland database
       - name: odisha_database
-        identifier: _airbyte_raw_od_pmu_database_22_23_
+        identifier: _airbyte_raw_od_db_22_23
         description: odisha database
       - name: punjab_database
-        identifier: _airbyte_raw_pb_pmu_database_22_23
+        identifier: _airbyte_raw_pb_db_22_23
         description: punjab database
       - name: rajasthan_database
-        identifier: _airbyte_raw_rj_pmu_database_22_23
+        identifier: _airbyte_raw_rj_db_22_23
         description: rajasthan database
       - name: tamil_nadu_database
-        identifier: _airbyte_raw_tn_pmu_database_22_23
+        identifier: _airbyte_raw_tn_db_22_23
         description: tamil nadu database
       - name: telangana_database
-        identifier: _airbyte_raw_tl_pmu_database_22_23
+        identifier: _airbyte_raw_tl_db_22_23
         description: telangana database
       - name: uttarakhand_database
         identifier: _airbyte_raw_uttarakhand_pmu_database_22_23_
