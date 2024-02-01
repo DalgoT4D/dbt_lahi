@@ -26,27 +26,27 @@ SELECT
     "HM_Name" as "hm_name",
     "Block" as "block",
     "Books_Class_9" as "books_class_9",
-    "Job_Role_For_Class_11_and_12_" as "state_job_role_11_and_12",
+    "Job_Role_11&12" as "state_job_role_11_and_12",
     CASE 
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Junior Field Technician – Home Appliances' THEN 'Field Technician - Other Home Appliances'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        WHEN "Job_Role_For_Class_11_and_12_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
-        ELSE "Job_Role_For_Class_11_and_12_"
+        WHEN "Job_Role_11&12" = 'Junior Field Technician – Home Appliances' THEN 'Field Technician - Other Home Appliances'
+        WHEN "Job_Role_11&12" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_11&12" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_11&12" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
+        WHEN "Job_Role_11&12" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
+        WHEN "Job_Role_11&12" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        WHEN "Job_Role_11&12" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
+        ELSE "Job_Role_11&12"
     END AS "lahi_job_role_11_and_12",
-    "Job_Role_For_Class_9_and_10_" as "state_job_role_9_and_10",
+    "Job_Role_9&10" as "state_job_role_9_and_10",
     CASE 
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Junior Field Technician – Home Appliances' THEN 'Field Technician - Other Home Appliances'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
-        WHEN "Job_Role_For_Class_9_and_10_" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
-        ELSE "Job_Role_For_Class_9_and_10_"
+        WHEN "Job_Role_9&10" = 'Junior Field Technician – Home Appliances' THEN 'Field Technician - Other Home Appliances'
+        WHEN "Job_Role_9&10" = 'Assistant Beauty Tharapist' THEN 'Assistant Beauty Therapist'
+        WHEN "Job_Role_9&10" = 'Domesstic Data Entry Operator' THEN 'Domestic Data Entry Operator'
+        WHEN "Job_Role_9&10" = 'Physical Education Assistant (Primary Years)' THEN 'Primary Years Physical Activity Facilitator'
+        WHEN "Job_Role_9&10" = 'Assistant Plumber (General)' THEN 'Plumber (General)'
+        WHEN "Job_Role_9&10" = 'Retail Store Ops Assistant' THEN 'Store Operations Assistant'
+        WHEN "Job_Role_9&10" = 'Food & Beverge Sevice Trainee' THEN 'Food and Beverage Service Trainee'
+        ELSE "Job_Role_9&10"
     END AS "lahi_job_role_9_and_10",
     NULL as "remarks",
     "12Boys" as "boys_12",
