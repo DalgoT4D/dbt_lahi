@@ -4,7 +4,7 @@
 
     {%- if custom_schema_name is none -%}
 
-       {%- if target.schema != "prod" -%}
+       {%- if target.schema != "dev_prod" -%}
             {% if node.fqn[1:-1]|length == 0 %}
                  {{target.schema}}_{{ default_schema }}    
             {% else %}
