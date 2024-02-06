@@ -154,12 +154,3 @@ models:
         tests:
           - unique
           - not_null
-  - name: state_aggregation
-    description: "Normalized data of Jharkhand"
-    +schema: intermediate
-    columns:
-      - name: _airbyte_ab_id
-        description: "The primary key for this table"
-        tests:
-          - unique
-          - not_null
